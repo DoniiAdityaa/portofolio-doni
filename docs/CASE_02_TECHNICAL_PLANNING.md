@@ -36,6 +36,7 @@
 | Skill/brand icons | `simple-icons` | Admin stores an icon slug such as `flutter`; the site renders the official icon |
 | UI icons | `lucide-react` | Menu, arrows, close, and similar icons |
 | Manual ordering in admin | `dnd-kit` | Drag-and-drop reordering |
+| Theme (CR-08) | Own `data-theme` switch on `<html>` | CSS variables per theme; a tiny inline script applies the saved choice before paint (no flash); no extra library |
 | Animation (CR-01) | `motion` (Framer Motion) | Page, scroll, hover, and layout animations; respects reduced motion through `MotionConfig` |
 
 Nothing else is added without a clear need.
@@ -173,14 +174,15 @@ Translatable fields use type `jsonb` holding `{ "en": ..., "id": ... }` (see §5
 | `site_settings` | name, headline*, short_intro*, full_intro*, photo_path, github_username, social_links (jsonb), seo_title*, seo_description*, cv_en_path, cv_id_path | Single row |
 | `skill_categories` | name*, sort_order | e.g. Mobile, Web, Backend, Tools |
 | `skills` | name, icon_slug, category_id → skill_categories, sort_order, status | Icon from `simple-icons` |
-| `experiences` | company, logo_path, position*, type (`full_time`, `internship`, `freelance`, `contract`), start_date, end_date (null = Present), description*, status | Career timeline |
+| `experiences` | company, logo_path, position*, type (`full_time`, `internship`, `freelance`, `contract`), start_date, end_date (null = Present), responsibilities*, learnings*, impact* (CR-04, one item per line), status | Career timeline |
 | `experience_skills` | experience_id, skill_id | Optional "tech used" |
 | `educations` | institution, logo_path, degree*, start_date, end_date, notes*, status | |
 | `achievement_categories` | name*, sort_order | Defaults: Mobile, Web, Backend, Cloud, Soft Skill |
 | `achievements` | title*, type (`certificate`, `award`), image_path, issuer, issued_at, expires_at, credential_url, credential_id, category_id, description*, status | |
 | `achievement_skills` | achievement_id, skill_id | Related skills |
-| `project_categories` | name*, sort_order | Defaults: Mobile, Web, Backend |
-| `projects` | slug (unique), title*, summary*, thumbnail_path, category_id, project_status (`completed`, `in_progress`, `archived`), started_at, ended_at, is_featured, repo_url, demo_url, play_store_url, app_store_url, overview*, problem*, solution*, features*, challenges*, status | Case-study sections are Markdown |
+| `project_types` | name*, sort_order | Platform (CR-06). Defaults: Web, Mobile |
+| `project_categories` | name*, sort_order | Context (CR-06). Defaults: Personal project, Internship, Freelance, Competition |
+| `projects` | slug (unique), title*, summary*, thumbnail_path, type_id, category_id, project_status (`completed`, `in_progress`, `archived`), started_at, ended_at, is_featured, repo_url, demo_url, play_store_url, app_store_url, overview*, problem*, solution*, features*, challenges*, status | Case-study sections are Markdown |
 | `project_skills` | project_id, skill_id | Tech stack |
 | `project_images` | project_id, path, alt*, orientation (`portrait`, `landscape`), sort_order | Gallery |
 | `contact_messages` | name, email, message, is_read, archived_at, created_at | Inbox |

@@ -169,6 +169,8 @@ Each milestone lists tasks and a **completion checklist**. A milestone is done o
 
 ### M6 — Integrations
 **Tasks**
+> **Note (2026-11-18, owner request):** the GitHub GraphQL fetcher and response mapper were built early, in M2. Until M6 the Dashboard fetches live and caches the result for one day (`use cache` + `cacheLife("days")`); M6 adds the stored snapshot, the daily cron job, and the admin "Refresh now" button on top of the same fetcher.
+
 1. **GitHub:** GraphQL fetcher (contributions, pinned repositories, languages), `/api/cron/github` protected by `CRON_SECRET`, save to `github_snapshot`, Vercel Cron daily, admin "Refresh now", Dashboard reads the snapshot with "last updated" and fallback states.
 2. **Visitor statistics:** tracking client component, `/api/track` with daily salted hash (no raw IP), bot and admin exclusion, database insert function, admin Overview chart for unique visitors and page views by day/week/month.
 3. **Contact:** server action with Zod, honeypot, rate limit 3 per visitor per hour, save to `contact_messages`; Inbox shows new messages.

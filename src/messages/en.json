@@ -3,9 +3,6 @@
     "title": "Portfolio",
     "description": "Personal developer portfolio."
   },
-  "profile": {
-    "role": "Mobile Developer (Flutter)"
-  },
   "nav": {
     "label": "Main navigation",
     "home": "Home",
@@ -22,25 +19,30 @@
     "openMenu": "Open menu",
     "menuTitle": "Menu",
     "skipToContent": "Skip to content",
-    "socialLinks": "Social links"
+    "socialLinks": "Social links",
+    "endOfPage": "You've reached the end",
+    "backToTop": "Back to top",
+    "theme": "Theme",
+    "lightMode": "Light mode",
+    "darkMode": "Dark mode"
   },
   "pages": {
     "comingSoonTitle": "Coming soon",
     "comingSoonDescription": "This page is being built.",
     "about": {
-      "description": "Who I am, where I've worked, and where I studied."
+      "description": "Get to know me: my story, the places I've worked, and the schools that shaped how I build software."
     },
     "achievements": {
-      "description": "Certificates and awards I've earned."
+      "description": "Certificates, courses, and awards that mark what I've learned and achieved along the way."
     },
     "projects": {
-      "description": "Things I've built."
+      "description": "Apps and websites I've designed and built, from personal experiments to internship and freelance work."
     },
     "dashboard": {
-      "description": "My GitHub activity."
+      "description": "A live look at my GitHub: profile stats, a year of contributions, pinned repositories, and the languages I use most."
     },
     "contact": {
-      "description": "Get in touch."
+      "description": "Have a project, an opportunity, or just want to say hi? Send me a message and I'll get back to you."
     }
   },
   "notFound": {
@@ -58,7 +60,184 @@
     "present": "Present"
   },
   "home": {
-    "greeting": "Hi, I'm {name} 👋",
-    "intro": "I build mobile apps with Flutter that feel good to use. My full introduction, skills, and featured projects arrive in the next milestone."
+    "greeting": "Hi, I'm {name}",
+    "viewProjects": "View projects",
+    "skills": {
+      "title": "Skills",
+      "description": "Tools and technologies I work with.",
+      "all": "All",
+      "filterLabel": "Filter skills by category"
+    },
+    "featured": {
+      "title": "Featured projects",
+      "description": "A few things I've built recently.",
+      "viewAll": "View all projects"
+    }
+  },
+  "projects": {
+    "status": {
+      "completed": "Completed",
+      "in_progress": "In progress",
+      "archived": "Archived"
+    },
+    "caseStudyComingSoon": "The full case study is coming soon.",
+    "backToProjects": "Back to projects",
+    "techStack": "Tech stack",
+    "all": "All",
+    "search": "Search projects",
+    "searchPlaceholder": "Search by name or description…",
+    "total": "{count, plural, one {# project} other {# projects}}",
+    "emptyTitle": "No projects match your search",
+    "emptyDescription": "Try another keyword or category.",
+    "reset": "Reset",
+    "sections": {
+      "overview": "Overview",
+      "problem": "Problem",
+      "solution": "Solution",
+      "features": "Key features",
+      "challenges": "Challenges and learnings",
+      "gallery": "Gallery",
+      "links": "Links"
+    },
+    "links": {
+      "repo": "Source code",
+      "demo": "Live demo",
+      "playStore": "Google Play",
+      "appStore": "App Store"
+    },
+    "period": "Period",
+    "category": "Category",
+    "statusLabel": "Status",
+    "previous": "Previous image",
+    "next": "Next image",
+    "openImage": "Open image: {alt}",
+    "imageCount": "{current} of {total}",
+    "close": "Close",
+    "filterType": "Type",
+    "filterCategory": "Category"
+  },
+  "about": {
+    "intro": {
+      "title": "Hello there",
+      "signature": "Best regards,"
+    },
+    "career": {
+      "title": "Career",
+      "description": "My professional journey."
+    },
+    "education": {
+      "title": "Education",
+      "description": "Where I studied."
+    },
+    "type": {
+      "full_time": "Full-time",
+      "internship": "Internship",
+      "freelance": "Freelance",
+      "contract": "Contract"
+    },
+    "showDetails": "Show details",
+    "hideDetails": "Hide details",
+    "techUsed": "Tech used",
+    "duration": {
+      "years": "{count, plural, one {# yr} other {# yrs}}",
+      "months": "{count, plural, one {# mo} other {# mos}}"
+    },
+    "responsibilities": "Responsibilities",
+    "learned": "What I learned",
+    "impact": "Impact"
+  },
+  "achievements": {
+    "filterType": "Type",
+    "filterCategory": "Category",
+    "allTypes": "All types",
+    "allCategories": "All categories",
+    "type": {
+      "certificate": "Certificate",
+      "award": "Award"
+    },
+    "total": "{count, plural, one {# item} other {# items}}",
+    "issuedBy": "Issued by",
+    "issued": "Issued",
+    "expires": "Expires",
+    "noExpiry": "No expiry",
+    "credentialId": "Credential ID",
+    "category": "Category",
+    "skills": "Related skills",
+    "verify": "Verify credential",
+    "viewDetails": "View details for {title}",
+    "emptyTitle": "Nothing matches these filters",
+    "emptyDescription": "Try another keyword, type, or category.",
+    "reset": "Reset filters",
+    "typeLabel": "Type",
+    "search": "Search certificates",
+    "searchPlaceholder": "Search by title or issuer…"
+  },
+  "dashboard": {
+    "github": {
+      "title": "GitHub activity",
+      "description": "Open-source contributions, repositories, and coding activity over the past year."
+    },
+    "pinned": {
+      "title": "Pinned repositories",
+      "description": "Repositories I've pinned on GitHub: the projects I'm most proud of right now."
+    },
+    "languages": {
+      "title": "Top languages",
+      "description": "How my code is split across languages in my public repositories."
+    },
+    "lastUpdated": "Last updated {date}",
+    "viewProfile": "View GitHub profile",
+    "graphLabel": "Contribution calendar for the past year",
+    "cellTooltip": "{count, plural, =0 {No contributions} one {# contribution} other {# contributions}} on {date}",
+    "less": "Less",
+    "more": "More",
+    "stars": "Stars",
+    "forks": "Forks",
+    "languagesBarLabel": "Language share",
+    "unavailableTitle": "GitHub data isn't available yet",
+    "unavailableDescription": "It will appear here after the next daily update.",
+    "stats": {
+      "followers": "Followers",
+      "following": "Following",
+      "repositories": "Repositories",
+      "contributions": "Contributions",
+      "thisWeek": "This week",
+      "bestDay": "Best day",
+      "dailyAverage": "Daily average",
+      "perDay": "/ day"
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "Send a message",
+      "description": "Tell me about your project, an opportunity, or just say hi. I usually reply within a few days."
+    },
+    "channels": {
+      "title": "Find me online",
+      "description": "Follow along or say hi on the platforms I use most."
+    },
+    "fields": {
+      "name": "Name",
+      "email": "Email",
+      "message": "Message"
+    },
+    "placeholders": {
+      "name": "Your name",
+      "email": "you@example.com",
+      "message": "Hi Doni, I'd like to talk about…"
+    },
+    "send": "Send message",
+    "sending": "Sending…",
+    "comingSoonNotice": "Your message looks good! Sending from this form will be enabled soon. Until then, please reach me through one of the channels on this page.",
+    "errors": {
+      "nameTooShort": "Enter at least 2 characters.",
+      "nameTooLong": "Keep your name under 80 characters.",
+      "emailInvalid": "Enter a valid email address.",
+      "messageTooShort": "Write at least 10 characters.",
+      "messageTooLong": "Keep your message under 2,000 characters.",
+      "honeypot": "Something went wrong. Try again."
+    },
+    "windowTitle": "new-message.ts",
+    "windowBadge": "draft"
   }
 }

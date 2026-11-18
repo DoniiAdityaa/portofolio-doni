@@ -1,30 +1,20 @@
-import { getTranslations } from "next-intl/server";
+import { Separator } from "@/components/ui/separator";
+import { Hero } from "@/features/home/components/hero";
+import { FeaturedProjects } from "@/features/projects/components/featured-projects";
+import { getSiteSettings } from "@/features/settings/queries";
+import { SkillsSection } from "@/features/skills/components/skills-section";
 
-import { Reveal } from "@/components/motion/reveal";
-import { Typewriter } from "@/components/motion/typewriter";
-import { placeholderProfile } from "@/features/settings/placeholder-profile";
-
-/**
- * Home hero. M2 adds the skills and featured-projects sections below it,
- * with real content from `features/*` queries.
- */
+/** Home (Case 01 §5.1): hero → skills grouped by category → up to 3 featured projects. */
 export default async function HomePage() {
-  const tHome = await getTranslations("home");
-  const tProfile = await getTranslations("profile");
+  const settings = await getSiteSettings();
 
   return (
-    <section className="space-y-5">
-      <Reveal>
-        <p className="font-mono text-sm text-primary">
-          {tHome("greeting", { name: placeholderProfile.name })}
-        </p>
-      </Reveal>
-      <h1 className="text-4xl font-semibold sm:text-5xl">
-        <Typewriter text={tProfile("role")} />
-      </h1>
-      <Reveal delay={0.15}>
-        <p className="max-w-2xl leading-relaxed text-muted-foreground">{tHome("intro")}</p>
-      </Reveal>
-    </section>
+    <div className="space-y-12">
+      <Hero settings={settings} />
+      <Separator />
+      <SkillsSection />
+      <Separator />
+      <FeaturedProjects />
+    </div>
   );
 }

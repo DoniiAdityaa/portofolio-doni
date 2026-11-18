@@ -1,4 +1,4 @@
-import { Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
+import { Dancing_Script, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 
 /** Fonts from Case 01 §3.3, exposed as CSS variables used by globals.css. */
 const spaceGrotesk = Space_Grotesk({
@@ -19,6 +19,18 @@ const jetbrainsMono = JetBrains_Mono({
   display: "swap",
 });
 
-export const fontVariables = [spaceGrotesk.variable, inter.variable, jetbrainsMono.variable].join(
-  " ",
-);
+/** Handwritten signature on the About page (CR-03). Not preloaded: only one page uses it. */
+const dancingScript = Dancing_Script({
+  subsets: ["latin"],
+  weight: "600",
+  variable: "--font-dancing-script",
+  display: "swap",
+  preload: false,
+});
+
+export const fontVariables = [
+  spaceGrotesk.variable,
+  inter.variable,
+  jetbrainsMono.variable,
+  dancingScript.variable,
+].join(" ");

@@ -45,7 +45,7 @@
 
 ### 3.1 Direction (Confirmed, carried from Project Guide)
 - **Playful Professional**: modern, clean, understated; playful through small details, not loud colors.
-- **Dark mode only in v1.** Light mode is deferred (see §11).
+- **Dark by default, with a light mode (CR-08).** A sun/moon toggle in the sidebar switches themes and the visitor's choice is remembered. Light-mode accents use darker shades for WCAG AA.
 - Avoid lavender and pastel-heavy styling.
 
 ### 3.2 Color palette (Confirmed)
@@ -68,6 +68,7 @@ Accents are used selectively; the interface stays mostly neutral and dark.
 | Headings | Space Grotesk |
 | Body text | Inter |
 | Code, tags, small technical accents | JetBrains Mono |
+| Handwritten signature on About (CR-03) | Dancing Script |
 
 ### 3.4 Layout (Confirmed)
 - **Desktop:** the sidebar and the page content sit together in one **centered container** (not stretched edge to edge); the sidebar stays in place (sticky) while the content scrolls. The sidebar contains a short profile (photo, name, role), navigation menu, social links, language toggle, and Download CV.
@@ -76,7 +77,7 @@ Accents are used selectively; the interface stays mostly neutral and dark.
 
 ### 3.5 Playful details (Confirmed; animation scope widened by CR-01)
 - Tech tags styled like code, e.g. `<flutter />`.
-- **Rich animation (CR-01):** content fades/slides in on page load and on scroll, page transitions, a sliding active-menu indicator, hover lift on cards and skill chips, tilt on cards, a typing effect in the Home hero, and a soft animated glow in the background.
+- **Rich animation (CR-01):** content fades/slides in on page load and on scroll, page transitions, a sliding active-menu indicator, hover lift on cards and skill chips, tilt on cards, and a looping typing effect in the Home hero. The page background stays one solid color (CR-02).
 - Skill chips use a light tint of each brand's color (e.g. Flutter blue, Laravel red).
 - Contribution graph colored with the Teal/Sky palette instead of GitHub green.
 - All motion respects the visitor's "reduce motion" setting.
@@ -124,7 +125,7 @@ The admin area is separate and is not linked from the public navigation.
 2. **Career:** vertical timeline, newest first. Internships are included and labeled **"Internship"**.
 3. **Education:** vertical timeline, newest first.
 
-**Fields per Career entry:** company name, company **logo (uploaded in admin)**, position, type (**Full-time / Internship / Freelance / Contract**), start–end date or "Present", description, tech used (optional).
+**Fields per Career entry:** company name, company **logo (uploaded in admin)**, position, type (**Full-time / Internship / Freelance / Contract**), start–end date or "Present", **Responsibilities**, **What I learned**, and **Impact** (CR-04; each a list, one item per line), tech used (optional). Details open with "Show details".
 
 **Current content (Confirmed):** only Internship entries are published for now. An earlier company job is kept as **Draft** (hidden from visitors) and can be published later from admin. Full-time and other types are available in admin for future use.
 
@@ -152,7 +153,7 @@ The admin area is separate and is not linked from the public navigation.
 **Interaction (Confirmed):** clicking an item opens a **lightbox/modal** with the enlarged image, the details, and a "Verify" button when a credential link exists.
 
 **Acceptance criteria (Confirmed):**
-- Visitors can filter by type (Certificate / Award) and by category.
+- Visitors can search by title or issuer (CR-05) and filter by type (Certificate / Award) and by category.
 - The Verify button opens the credential link in a new tab and is hidden when there is no link.
 - The modal can be closed with a close button, the Esc key, or a click outside.
 
@@ -198,6 +199,7 @@ The admin area is separate and is not linked from the public navigation.
 ### 5.5 Dashboard (GitHub)
 
 **Content (Confirmed):**
+- **Stat cards (CR-07):** followers, following, repositories, contributions, this week, best day, daily average.
 - **Contribution graph:** contribution calendar for the past year.
 - **Pinned repositories:** name, description, main language, stars, link.
 - **Top languages:** share of the most-used languages.
@@ -299,11 +301,17 @@ No open product decisions remain.
 | ID | Date | Change | Approved |
 |---|---|---|---|
 | CR-01 | 2026-11-18 | Desktop layout becomes a centered container with a sticky sidebar (UI/UX reference style). Animation scope widened from "subtle" to rich animation (§3.5). Skill chips tinted with brand colors. Palette unchanged. | Owner, in chat |
+| CR-02 | 2026-11-18 | Background is one solid color (no gradient glow). Hero typing effect loops. No emoji in the greeting. | Owner, in chat |
+| CR-04 | 2026-11-18 | Career entries split their description into Responsibilities, What I learned, and Impact, each with an icon; career cards get creative hover animations. | Owner, in chat |
+| CR-05 | 2026-11-18 | Achievement gets a search box (title and issuer). The certificate viewer becomes a wide split view: large image left, details panel right (stacked on phones), with entry animations. | Owner, in chat |
+| CR-06 | 2026-11-18 | Projects have a **type** (platform: Web, Mobile) and a separate **category** (context: Personal project, Internship, Freelance, Competition), both managed in admin; the list filters by both in two labeled pill rows plus search. Every page ends with a "You've reached the end" marker and a back-to-top button. | Owner, in chat |
+| CR-07 | 2026-11-18 | Dashboard adds stat cards: followers, following, repositories, contributions, this week, best day, and daily average (counting up on view); the GitHub section uses the GitHub icon; page and section descriptions are longer. | Owner, in chat |
+| CR-08 | 2026-11-18 | Light mode moves into v1 (toggle next to the language switch, dark stays default). Sidebar redesign: flag-based language pill and theme pill. The role under the name rotates through admin-managed phrases. A sky progress bar shows at the top during page navigation. Contact page redesigned (code-editor form, social tiles). | Owner, in chat |
+| CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope
 
 **Deferred to a later version:**
-- Light mode
 - Comments / likes on projects
 
 **Not planned (removed from the plan):**

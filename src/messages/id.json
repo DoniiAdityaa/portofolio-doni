@@ -3,9 +3,6 @@
     "title": "Portofolio",
     "description": "Portofolio developer pribadi."
   },
-  "profile": {
-    "role": "Mobile Developer (Flutter)"
-  },
   "nav": {
     "label": "Navigasi utama",
     "home": "Beranda",
@@ -22,25 +19,30 @@
     "openMenu": "Buka menu",
     "menuTitle": "Menu",
     "skipToContent": "Langsung ke konten",
-    "socialLinks": "Tautan sosial"
+    "socialLinks": "Tautan sosial",
+    "endOfPage": "Sudah sampai akhir",
+    "backToTop": "Kembali ke atas",
+    "theme": "Tema",
+    "lightMode": "Mode terang",
+    "darkMode": "Mode gelap"
   },
   "pages": {
     "comingSoonTitle": "Segera hadir",
     "comingSoonDescription": "Halaman ini sedang dibuat.",
     "about": {
-      "description": "Siapa saya, tempat saya bekerja, dan tempat saya belajar."
+      "description": "Kenali saya lebih dekat: cerita saya, tempat saya bekerja, dan sekolah yang membentuk cara saya membangun software."
     },
     "achievements": {
-      "description": "Sertifikat dan penghargaan yang saya raih."
+      "description": "Sertifikat, kursus, dan penghargaan yang menandai apa yang sudah saya pelajari dan raih selama ini."
     },
     "projects": {
-      "description": "Hal-hal yang saya bangun."
+      "description": "Aplikasi dan website yang saya rancang dan bangun, dari eksperimen pribadi sampai pekerjaan magang dan freelance."
     },
     "dashboard": {
-      "description": "Aktivitas GitHub saya."
+      "description": "Sekilas tentang GitHub saya: statistik profil, kontribusi setahun, repositori pilihan, dan bahasa yang paling sering saya pakai."
     },
     "contact": {
-      "description": "Hubungi saya."
+      "description": "Punya proyek, peluang kerja sama, atau sekadar ingin menyapa? Kirim pesan dan saya akan membalasnya."
     }
   },
   "notFound": {
@@ -58,7 +60,184 @@
     "present": "Sekarang"
   },
   "home": {
-    "greeting": "Halo, saya {name} 👋",
-    "intro": "Saya membangun aplikasi mobile dengan Flutter yang nyaman dipakai. Perkenalan lengkap, skill, dan proyek unggulan akan hadir di milestone berikutnya."
+    "greeting": "Halo, saya {name}",
+    "viewProjects": "Lihat proyek",
+    "skills": {
+      "title": "Skill",
+      "description": "Tools dan teknologi yang saya gunakan.",
+      "all": "Semua",
+      "filterLabel": "Saring skill berdasarkan kategori"
+    },
+    "featured": {
+      "title": "Proyek unggulan",
+      "description": "Beberapa hal yang baru saya bangun.",
+      "viewAll": "Lihat semua proyek"
+    }
+  },
+  "projects": {
+    "status": {
+      "completed": "Selesai",
+      "in_progress": "Sedang dikerjakan",
+      "archived": "Diarsipkan"
+    },
+    "caseStudyComingSoon": "Studi kasus lengkap segera hadir.",
+    "backToProjects": "Kembali ke proyek",
+    "techStack": "Tech stack",
+    "all": "Semua",
+    "search": "Cari proyek",
+    "searchPlaceholder": "Cari nama atau deskripsi…",
+    "total": "{count} proyek",
+    "emptyTitle": "Tidak ada proyek yang cocok",
+    "emptyDescription": "Coba kata kunci atau kategori lain.",
+    "reset": "Reset",
+    "sections": {
+      "overview": "Ringkasan",
+      "problem": "Masalah",
+      "solution": "Solusi",
+      "features": "Fitur utama",
+      "challenges": "Tantangan dan pembelajaran",
+      "gallery": "Galeri",
+      "links": "Tautan"
+    },
+    "links": {
+      "repo": "Kode sumber",
+      "demo": "Demo langsung",
+      "playStore": "Google Play",
+      "appStore": "App Store"
+    },
+    "period": "Periode",
+    "category": "Kategori",
+    "statusLabel": "Status",
+    "previous": "Gambar sebelumnya",
+    "next": "Gambar berikutnya",
+    "openImage": "Buka gambar: {alt}",
+    "imageCount": "{current} dari {total}",
+    "close": "Tutup",
+    "filterType": "Tipe",
+    "filterCategory": "Kategori"
+  },
+  "about": {
+    "intro": {
+      "title": "Halo",
+      "signature": "Salam hangat,"
+    },
+    "career": {
+      "title": "Karier",
+      "description": "Perjalanan profesional saya."
+    },
+    "education": {
+      "title": "Pendidikan",
+      "description": "Tempat saya belajar."
+    },
+    "type": {
+      "full_time": "Penuh waktu",
+      "internship": "Magang",
+      "freelance": "Freelance",
+      "contract": "Kontrak"
+    },
+    "showDetails": "Lihat detail",
+    "hideDetails": "Sembunyikan detail",
+    "techUsed": "Teknologi",
+    "duration": {
+      "years": "{count} thn",
+      "months": "{count} bln"
+    },
+    "responsibilities": "Tanggung jawab",
+    "learned": "Yang saya pelajari",
+    "impact": "Dampak"
+  },
+  "achievements": {
+    "filterType": "Jenis",
+    "filterCategory": "Kategori",
+    "allTypes": "Semua jenis",
+    "allCategories": "Semua kategori",
+    "type": {
+      "certificate": "Sertifikat",
+      "award": "Penghargaan"
+    },
+    "total": "{count} item",
+    "issuedBy": "Diterbitkan oleh",
+    "issued": "Terbit",
+    "expires": "Berlaku sampai",
+    "noExpiry": "Tanpa masa berlaku",
+    "credentialId": "ID kredensial",
+    "category": "Kategori",
+    "skills": "Skill terkait",
+    "verify": "Verifikasi kredensial",
+    "viewDetails": "Lihat detail {title}",
+    "emptyTitle": "Tidak ada yang cocok dengan filter ini",
+    "emptyDescription": "Coba kata kunci, jenis, atau kategori lain.",
+    "reset": "Reset filter",
+    "typeLabel": "Jenis",
+    "search": "Cari sertifikat",
+    "searchPlaceholder": "Cari judul atau penerbit…"
+  },
+  "dashboard": {
+    "github": {
+      "title": "Aktivitas GitHub",
+      "description": "Kontribusi open source, repositori, dan aktivitas coding selama setahun terakhir."
+    },
+    "pinned": {
+      "title": "Repositori pilihan",
+      "description": "Repositori yang saya sematkan di GitHub: proyek yang paling saya banggakan saat ini."
+    },
+    "languages": {
+      "title": "Bahasa teratas",
+      "description": "Pembagian kode saya berdasarkan bahasa di repositori publik."
+    },
+    "lastUpdated": "Terakhir diperbarui {date}",
+    "viewProfile": "Lihat profil GitHub",
+    "graphLabel": "Kalender kontribusi setahun terakhir",
+    "cellTooltip": "{count, plural, =0 {Tidak ada kontribusi} other {# kontribusi}} pada {date}",
+    "less": "Sedikit",
+    "more": "Banyak",
+    "stars": "Bintang",
+    "forks": "Fork",
+    "languagesBarLabel": "Porsi bahasa",
+    "unavailableTitle": "Data GitHub belum tersedia",
+    "unavailableDescription": "Data akan muncul setelah pembaruan harian berikutnya.",
+    "stats": {
+      "followers": "Pengikut",
+      "following": "Mengikuti",
+      "repositories": "Repositori",
+      "contributions": "Kontribusi",
+      "thisWeek": "Minggu ini",
+      "bestDay": "Hari terbaik",
+      "dailyAverage": "Rata-rata harian",
+      "perDay": "/ hari"
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "Kirim pesan",
+      "description": "Ceritakan proyekmu, peluang kerja sama, atau sekadar menyapa. Biasanya saya membalas dalam beberapa hari."
+    },
+    "channels": {
+      "title": "Temukan saya",
+      "description": "Ikuti atau sapa saya di platform yang paling sering saya pakai."
+    },
+    "fields": {
+      "name": "Nama",
+      "email": "Email",
+      "message": "Pesan"
+    },
+    "placeholders": {
+      "name": "Nama kamu",
+      "email": "kamu@contoh.com",
+      "message": "Halo Doni, saya ingin membahas…"
+    },
+    "send": "Kirim pesan",
+    "sending": "Mengirim…",
+    "comingSoonNotice": "Pesanmu sudah valid! Pengiriman dari form ini akan segera diaktifkan. Sementara itu, hubungi saya lewat salah satu kanal di halaman ini.",
+    "errors": {
+      "nameTooShort": "Isi minimal 2 karakter.",
+      "nameTooLong": "Nama maksimal 80 karakter.",
+      "emailInvalid": "Masukkan alamat email yang valid.",
+      "messageTooShort": "Tulis minimal 10 karakter.",
+      "messageTooLong": "Pesan maksimal 2.000 karakter.",
+      "honeypot": "Terjadi kesalahan. Coba lagi."
+    },
+    "windowTitle": "pesan-baru.ts",
+    "windowBadge": "draf"
   }
 }
