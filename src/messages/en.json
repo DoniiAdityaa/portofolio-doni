@@ -108,5 +108,28 @@
     "responsibilities": "Responsibilities",
     "learned": "What I learned",
     "impact": "Impact"
+  },
+  "achievements": {
+    "filterType": "Type",
+    "filterCategory": "Category",
+    "allTypes": "All types",
+    "allCategories": "All categories",
+    "type": {
+      "certificate": "Certificate",
+      "award": "Award"
+    },
+    "total": "{count, plural, one {# item} other {# items}}",
+    "issuedBy": "Issued by",
+    "issued": "Issued",
+    "expires": "Expires",
+    "noExpiry": "No expiry",
+    "credentialId": "Credential ID",
+    "category": "Category",
+    "skills": "Related skills",
+    "verify": "Verify credential",
+    "viewDetails": "View details for {title}",
+    "emptyTitle": "Nothing matches these filters",
+    "emptyDescription": "Try another type or category.",
+    "reset": "Reset filters"
   }
 }

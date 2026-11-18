@@ -108,5 +108,28 @@
     "responsibilities": "Tanggung jawab",
     "learned": "Yang saya pelajari",
     "impact": "Dampak"
+  },
+  "achievements": {
+    "filterType": "Jenis",
+    "filterCategory": "Kategori",
+    "allTypes": "Semua jenis",
+    "allCategories": "Semua kategori",
+    "type": {
+      "certificate": "Sertifikat",
+      "award": "Penghargaan"
+    },
+    "total": "{count} item",
+    "issuedBy": "Diterbitkan oleh",
+    "issued": "Terbit",
+    "expires": "Berlaku sampai",
+    "noExpiry": "Tanpa masa berlaku",
+    "credentialId": "ID kredensial",
+    "category": "Kategori",
+    "skills": "Skill terkait",
+    "verify": "Verifikasi kredensial",
+    "viewDetails": "Lihat detail {title}",
+    "emptyTitle": "Tidak ada yang cocok dengan filter ini",
+    "emptyDescription": "Coba jenis atau kategori lain.",
+    "reset": "Reset filter"
   }
 }
