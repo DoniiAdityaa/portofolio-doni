@@ -1,7 +1,6 @@
 import "server-only";
 
 import { redirect } from "next/navigation";
-import { connection } from "next/server";
 
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
@@ -19,8 +18,6 @@ export class NotAdminError extends Error {
 
 /** The signed-in admin, or `null` for visitors and signed-in users who are not admins. */
 export async function getAdminUser(): Promise<AdminUser | null> {
-  // Session checks compare token expiry with the current time, so they must run per request.
-  await connection();
   const supabase = await createSupabaseServerClient();
   const { data } = await supabase.auth.getClaims();
   const claims = data?.claims;

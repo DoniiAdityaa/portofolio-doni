@@ -228,7 +228,12 @@
     },
     "send": "Kirim pesan",
     "sending": "Mengirim…",
-    "comingSoonNotice": "Pesanmu sudah valid! Pengiriman dari form ini akan segera diaktifkan. Sementara itu, hubungi saya lewat salah satu kanal di halaman ini.",
+    "sentNotice": "Terima kasih! Pesanmu sudah terkirim. Biasanya saya membalas dalam beberapa hari.",
+    "sendErrors": {
+      "invalid": "Periksa kolom yang ditandai, lalu coba lagi.",
+      "rateLimited": "Kamu sudah mengirim 3 pesan dalam satu jam terakhir. Coba lagi nanti, atau hubungi saya lewat salah satu kanal di halaman ini.",
+      "failed": "Pesanmu belum bisa dikirim sekarang. Coba lagi sebentar lagi."
+    },
     "errors": {
       "nameTooShort": "Isi minimal 2 karakter.",
       "nameTooLong": "Nama maksimal 80 karakter.",

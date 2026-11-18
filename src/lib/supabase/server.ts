@@ -2,6 +2,7 @@ import "server-only";
 
 import { createServerClient } from "@supabase/ssr";
 import { cookies } from "next/headers";
+import { connection } from "next/server";
 
 import { getSupabaseConfig } from "./config";
 import type { Database } from "./database.types";
@@ -11,8 +12,9 @@ import type { Database } from "./database.types";
  * It acts as the signed-in visitor, so Row Level Security always applies.
  */
 export async function createSupabaseServerClient() {
-  // Read cookies first: it marks the caller as request-time, so prerendering at build
-  // stops here and never needs the Supabase config.
+  // Request-time only: the session check compares token expiry with the current time,
+  // so prerendering stops here and never needs the Supabase config.
+  await connection();
   const cookieStore = await cookies();
   const { url, publishableKey } = getSupabaseConfig();
 

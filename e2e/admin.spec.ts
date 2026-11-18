@@ -21,3 +21,8 @@ test("the login form validates before sending", async ({ page }) => {
   await expect(page).toHaveURL(/\/admin\/login$/);
   await expect(page.getByLabel("Email")).toBeFocused();
 });
+
+test("the GitHub cron endpoint rejects calls without the secret", async ({ request }) => {
+  const response = await request.get("/api/cron/github");
+  expect(response.status()).toBe(401);
+});

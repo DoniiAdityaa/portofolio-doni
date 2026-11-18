@@ -12,6 +12,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { cn } from "@/lib/utils/cn";
 
+import { type ContactSendError, sendContactMessage } from "../actions";
 import type { ContactErrorKey, ContactMessageInput } from "../schema";
 import { CONTACT_LIMITS, contactMessageSchema } from "../schema";
 
@@ -23,6 +24,7 @@ import { CONTACT_LIMITS, contactMessageSchema } from "../schema";
 export function ContactForm() {
   const t = useTranslations("contact");
   const [submitted, setSubmitted] = useState(false);
+  const [sendError, setSendError] = useState<ContactSendError | null>(null);
   const {
     register,
     handleSubmit,
@@ -36,9 +38,14 @@ export function ContactForm() {
   });
   const messageLength = useWatch({ control, name: "message" }).length;
 
-  async function onSubmit() {
-    // M6: call the contact server action here and keep the input if it fails.
-    await new Promise((resolve) => setTimeout(resolve, 400));
+  async function onSubmit(values: ContactMessageInput) {
+    setSendError(null);
+    const result = await sendContactMessage(values);
+    if (!result.ok) {
+      // Keep what the visitor typed, so they can try again.
+      setSendError(result.error);
+      return;
+    }
     setSubmitted(true);
     reset();
   }
@@ -123,7 +130,18 @@ export function ContactForm() {
               className="flex items-start gap-2 rounded-lg border border-teal/30 bg-teal/10 p-3 text-sm text-foreground sm:ml-8"
             >
               <CircleCheckIcon aria-hidden="true" className="mt-0.5 size-4 shrink-0 text-teal" />
-              {t("comingSoonNotice")}
+              {t("sentNotice")}
+            </motion.p>
+          ) : null}
+          {sendError ? (
+            <motion.p
+              role="alert"
+              initial={{ opacity: 0, y: 6 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0 }}
+              className="rounded-lg border border-destructive/30 bg-destructive/10 p-3 text-sm text-foreground sm:ml-8"
+            >
+              {t(`sendErrors.${sendError}`)}
             </motion.p>
           ) : null}
         </AnimatePresence>

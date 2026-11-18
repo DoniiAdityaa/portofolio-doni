@@ -228,7 +228,12 @@
     },
     "send": "Send message",
     "sending": "Sending…",
-    "comingSoonNotice": "Your message looks good! Sending from this form will be enabled soon. Until then, please reach me through one of the channels on this page.",
+    "sentNotice": "Thanks! Your message was sent. I usually reply within a few days.",
+    "sendErrors": {
+      "invalid": "Check the highlighted fields and try again.",
+      "rateLimited": "You've sent 3 messages in the last hour. Please try again later, or reach me through one of the channels on this page.",
+      "failed": "Your message couldn't be sent right now. Please try again in a moment."
+    },
     "errors": {
       "nameTooShort": "Enter at least 2 characters.",
       "nameTooLong": "Keep your name under 80 characters.",
