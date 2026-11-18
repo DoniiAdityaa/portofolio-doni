@@ -36,7 +36,7 @@ export async function EducationSection() {
           {educations.map((item) => {
             const notes = localize(item.notes, locale);
             return (
-              <RevealItem key={item.id}>
+              <RevealItem key={item.id} as="li">
                 <TimelineItem
                   title={item.institution}
                   subtitle={localize(item.degree, locale)}

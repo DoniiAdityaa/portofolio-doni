@@ -1,10 +1,13 @@
-import { expect, test } from "@playwright/test";
+import { expect, type Page, test } from "@playwright/test";
+
+/** Achievement cards are buttons that open the viewer dialog. */
+const cards = (page: Page) => page.locator('main button[aria-haspopup="dialog"]');
 
 test("lists certificates and awards", async ({ page }) => {
   await page.goto("/en/achievements");
 
   await expect(page.getByRole("heading", { level: 1, name: "Achievement" })).toBeVisible();
-  await expect(page.getByRole("button", { name: /^View details for/ })).toHaveCount(6);
+  await expect(cards(page)).toHaveCount(6);
   await expect(page.getByText("6 items")).toBeVisible();
 });
 
@@ -14,7 +17,7 @@ test("filters by type", async ({ page }) => {
   await page.getByRole("combobox", { name: "Type" }).click();
   await page.getByRole("option", { name: "Award" }).click();
 
-  await expect(page.getByRole("button", { name: /^View details for/ })).toHaveCount(2);
+  await expect(cards(page)).toHaveCount(2);
   await expect(page.getByText("2 items")).toBeVisible();
 });
 
@@ -23,10 +26,10 @@ test("searches by title or issuer", async ({ page }) => {
   const search = page.getByRole("searchbox", { name: "Search certificates" });
 
   await search.fill("dicoding");
-  await expect(page.getByRole("button", { name: /^View details for/ })).toHaveCount(3);
+  await expect(cards(page)).toHaveCount(3);
 
   await search.fill("firebase");
-  await expect(page.getByRole("button", { name: /^View details for/ })).toHaveCount(1);
+  await expect(cards(page)).toHaveCount(1);
   await expect(page.getByRole("button", { name: /Firebase for Mobile Apps/ })).toBeVisible();
 });
 
@@ -40,15 +43,13 @@ test("shows an empty state that resets the filters", async ({ page }) => {
 
   await expect(page.getByText("Nothing matches these filters")).toBeVisible();
   await page.getByRole("button", { name: "Reset filters" }).click();
-  await expect(page.getByRole("button", { name: /^View details for/ })).toHaveCount(6);
+  await expect(cards(page)).toHaveCount(6);
 });
 
 test("opens a lightbox with details and a Verify link, closed by Escape", async ({ page }) => {
   await page.goto("/en/achievements");
 
-  await page
-    .getByRole("button", { name: "View details for Flutter Application Developer Expert" })
-    .click();
+  await page.getByRole("button", { name: /Flutter Application Developer Expert/ }).click();
   const dialog = page.getByRole("dialog", { name: "Flutter Application Developer Expert" });
 
   await expect(dialog).toBeVisible();
@@ -66,7 +67,7 @@ test("opens a lightbox with details and a Verify link, closed by Escape", async 
 test("the viewer closes with its round close button", async ({ page }) => {
   await page.goto("/en/achievements");
 
-  await page.getByRole("button", { name: "View details for Firebase for Mobile Apps" }).click();
+  await page.getByRole("button", { name: /Firebase for Mobile Apps/ }).click();
   const dialog = page.getByRole("dialog", { name: "Firebase for Mobile Apps" });
   await expect(dialog).toBeVisible();
 
@@ -77,7 +78,7 @@ test("the viewer closes with its round close button", async ({ page }) => {
 test("awards without a credential link have no Verify button", async ({ page }) => {
   await page.goto("/id/achievements");
 
-  await page.getByRole("button", { name: "Lihat detail Juara 1 Hackathon Mobile Kampus" }).click();
+  await page.getByRole("button", { name: /Juara 1 Hackathon Mobile Kampus/ }).click();
   const dialog = page.getByRole("dialog");
 
   await expect(dialog.getByText("Tanpa masa berlaku")).toBeVisible();

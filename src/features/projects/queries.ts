@@ -22,7 +22,7 @@ type ProjectData = { projects: Project[]; types: ProjectType[]; categories: Proj
 /** Published projects with their gallery, types, and categories. Cached until edited. */
 async function loadProjects(): Promise<ProjectData> {
   "use cache";
-  cacheLife("days");
+  cacheLife("content");
   cacheTag(CACHE_TAGS.projects);
 
   const supabase = createSupabasePublicClient();

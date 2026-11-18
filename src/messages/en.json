@@ -51,8 +51,8 @@
     "backHome": "Back to home"
   },
   "error": {
-    "title": "Something went wrong",
-    "description": "An unexpected error occurred. Please try again.",
+    "title": "Temporarily unavailable",
+    "description": "This part of the site couldn't load right now. Please try again in a moment.",
     "retry": "Try again"
   },
   "common": {
@@ -164,7 +164,6 @@
     "category": "Category",
     "skills": "Related skills",
     "verify": "Verify credential",
-    "viewDetails": "View details for {title}",
     "emptyTitle": "Nothing matches these filters",
     "emptyDescription": "Try another keyword, type, or category.",
     "reset": "Reset filters",

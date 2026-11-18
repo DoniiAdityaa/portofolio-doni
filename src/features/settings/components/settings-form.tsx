@@ -1,8 +1,7 @@
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Loader2Icon, PlusIcon, SaveIcon, Trash2Icon } from "lucide-react";
-import type { ReactNode } from "react";
+import { Loader2Icon, SaveIcon } from "lucide-react";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
 import { toast } from "sonner";
 
@@ -10,6 +9,7 @@ import { BilingualField } from "@/components/admin/bilingual-field";
 import { FormField } from "@/components/admin/form-field";
 import { FormSection } from "@/components/admin/form-section";
 import { ImageUpload } from "@/components/admin/image-upload";
+import { AddButton, RemoveButton } from "@/components/admin/list-buttons";
 import { PLATFORM_LABELS } from "@/components/layout/social-icon";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -214,44 +214,5 @@ export function SettingsForm({ defaultValues }: { defaultValues: SiteSettingsFor
         </Button>
       </div>
     </form>
-  );
-}
-
-function AddButton({
-  disabled,
-  onClick,
-  children,
-}: {
-  disabled: boolean;
-  onClick: () => void;
-  children: ReactNode;
-}) {
-  return (
-    <Button
-      type="button"
-      variant="outline"
-      size="sm"
-      className="self-start"
-      disabled={disabled}
-      onClick={onClick}
-    >
-      <PlusIcon aria-hidden="true" />
-      {children}
-    </Button>
-  );
-}
-
-function RemoveButton({ label, onClick }: { label: string; onClick: () => void }) {
-  return (
-    <Button
-      type="button"
-      variant="ghost"
-      size="icon"
-      aria-label={label}
-      title={label}
-      onClick={onClick}
-    >
-      <Trash2Icon aria-hidden="true" />
-    </Button>
   );
 }

@@ -9,7 +9,7 @@ import type { Education } from "./types";
 /** Published education entries, newest first unless reordered in admin (Case 01 §5.2). */
 export async function getPublishedEducations(): Promise<Education[]> {
   "use cache";
-  cacheLife("days");
+  cacheLife("content");
   cacheTag(CACHE_TAGS.education);
 
   const { data, error } = await createSupabasePublicClient()

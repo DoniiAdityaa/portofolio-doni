@@ -48,7 +48,13 @@ export async function ContributionGraph({ days }: { days: ContributionDay[] }) {
 
   return (
     <div className="space-y-3">
-      <div className="overflow-x-auto pb-2">
+      {/* Focusable, so keyboard users can scroll it on small screens. */}
+      <div
+        role="region"
+        aria-label={t("graphLabel")}
+        tabIndex={0}
+        className="overflow-x-auto rounded-md pb-2 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
+      >
         <svg
           role="img"
           aria-label={t("graphLabel")}
