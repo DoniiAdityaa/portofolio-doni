@@ -18,6 +18,18 @@ test("filters by type", async ({ page }) => {
   await expect(page.getByText("2 items")).toBeVisible();
 });
 
+test("searches by title or issuer", async ({ page }) => {
+  await page.goto("/en/achievements");
+  const search = page.getByRole("searchbox", { name: "Search certificates" });
+
+  await search.fill("dicoding");
+  await expect(page.getByRole("button", { name: /^View details for/ })).toHaveCount(3);
+
+  await search.fill("firebase");
+  await expect(page.getByRole("button", { name: /^View details for/ })).toHaveCount(1);
+  await expect(page.getByRole("button", { name: /Firebase for Mobile Apps/ })).toBeVisible();
+});
+
 test("shows an empty state that resets the filters", async ({ page }) => {
   await page.goto("/en/achievements");
 
@@ -41,12 +53,24 @@ test("opens a lightbox with details and a Verify link, closed by Escape", async 
 
   await expect(dialog).toBeVisible();
   await expect(dialog.getByText("DUMMY-FLT-2026")).toBeVisible();
+  await expect(dialog.getByText("Dicoding Indonesia").first()).toBeVisible();
   await expect(dialog.getByRole("link", { name: "Verify credential" })).toHaveAttribute(
     "target",
     "_blank",
   );
 
   await page.keyboard.press("Escape");
+  await expect(dialog).toBeHidden();
+});
+
+test("the viewer closes with its round close button", async ({ page }) => {
+  await page.goto("/en/achievements");
+
+  await page.getByRole("button", { name: "View details for Firebase for Mobile Apps" }).click();
+  const dialog = page.getByRole("dialog", { name: "Firebase for Mobile Apps" });
+  await expect(dialog).toBeVisible();
+
+  await dialog.getByRole("button", { name: "Close" }).click();
   await expect(dialog).toBeHidden();
 });
 

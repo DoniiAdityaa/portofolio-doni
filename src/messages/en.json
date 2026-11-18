@@ -129,7 +129,10 @@
     "verify": "Verify credential",
     "viewDetails": "View details for {title}",
     "emptyTitle": "Nothing matches these filters",
-    "emptyDescription": "Try another type or category.",
-    "reset": "Reset filters"
+    "emptyDescription": "Try another keyword, type, or category.",
+    "reset": "Reset filters",
+    "typeLabel": "Type",
+    "search": "Search certificates",
+    "searchPlaceholder": "Search by title or issuer…"
   }
 }

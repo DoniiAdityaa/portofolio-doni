@@ -129,7 +129,10 @@
     "verify": "Verifikasi kredensial",
     "viewDetails": "Lihat detail {title}",
     "emptyTitle": "Tidak ada yang cocok dengan filter ini",
-    "emptyDescription": "Coba jenis atau kategori lain.",
-    "reset": "Reset filter"
+    "emptyDescription": "Coba kata kunci, jenis, atau kategori lain.",
+    "reset": "Reset filter",
+    "typeLabel": "Jenis",
+    "search": "Cari sertifikat",
+    "searchPlaceholder": "Cari judul atau penerbit…"
   }
 }

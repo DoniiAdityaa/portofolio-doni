@@ -3,25 +3,73 @@ import { getLocale, getTranslations } from "next-intl/server";
 
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Lightbox } from "@/components/ui/lightbox";
 import { SkillIcon } from "@/components/ui/skill-icon";
 import { formatDate } from "@/lib/i18n/dates";
 import { localize } from "@/lib/i18n/localize";
 
 import type { AchievementWithRelations } from "../queries";
 import { AchievementArtwork } from "./achievement-artwork";
+import { AchievementLightbox } from "./achievement-lightbox";
 
-/** Achievement card that opens a lightbox with details and a Verify link (Case 01 §5.3). */
+/** Achievement card that opens the certificate viewer (Case 01 §5.3, CR-05). */
 export async function AchievementCard({ item }: { item: AchievementWithRelations }) {
   const [locale, t] = await Promise.all([getLocale(), getTranslations("achievements")]);
   const title = localize(item.title, locale);
   const description = localize(item.description, locale);
   const issued = formatDate(item.issuedAt, locale, "month");
 
+  const details = [
+    description ? (
+      <p key="description" className="text-sm text-muted-foreground">
+        {description}
+      </p>
+    ) : null,
+    <dl key="facts" className="grid grid-cols-2 gap-x-4 gap-y-4 md:grid-cols-1">
+      <Detail label={t("credentialId")} value={item.credentialId ?? "–"} mono />
+      <Detail label={t("typeLabel")} value={t(`type.${item.type}`)} />
+      {item.category ? (
+        <Detail label={t("category")} value={localize(item.category.name, locale)} />
+      ) : null}
+      <Detail label={t("issued")} value={issued} />
+      <Detail
+        label={t("expires")}
+        value={item.expiresAt ? formatDate(item.expiresAt, locale, "month") : t("noExpiry")}
+      />
+    </dl>,
+    item.skills.length > 0 ? (
+      <div key="skills" className="space-y-2">
+        <p className="text-xs font-semibold tracking-wider text-amber uppercase">{t("skills")}</p>
+        <ul className="flex flex-wrap gap-2">
+          {item.skills.map((skill) => (
+            <li key={skill.id}>
+              <SkillIcon slug={skill.iconSlug} name={skill.name} />
+            </li>
+          ))}
+        </ul>
+      </div>
+    ) : null,
+    item.credentialUrl ? (
+      <Button key="verify" asChild className="w-full">
+        <a href={item.credentialUrl} target="_blank" rel="noreferrer">
+          {t("verify")}
+          <ExternalLinkIcon aria-hidden="true" />
+        </a>
+      </Button>
+    ) : null,
+  ].filter(Boolean);
+
   return (
-    <Lightbox
+    <AchievementLightbox
       title={title}
-      description={`${t("issuedBy")} ${item.issuer}`}
+      issuer={item.issuer}
+      image={
+        <AchievementArtwork
+          type={item.type}
+          issuer={item.issuer}
+          className="h-full w-full md:aspect-auto"
+        />
+      }
+      details={details}
       trigger={
         <button
           type="button"
@@ -47,59 +95,15 @@ export async function AchievementCard({ item }: { item: AchievementWithRelations
           </div>
         </button>
       }
-    >
-      <div className="space-y-5">
-        <AchievementArtwork
-          type={item.type}
-          issuer={item.issuer}
-          className="rounded-lg border sm:aspect-[16/9]"
-        />
-        {description ? <p className="text-sm text-muted-foreground">{description}</p> : null}
-        <dl className="grid grid-cols-2 gap-x-6 gap-y-3 text-sm">
-          <Detail label={t("issued")} value={issued} />
-          <Detail
-            label={t("expires")}
-            value={item.expiresAt ? formatDate(item.expiresAt, locale, "month") : t("noExpiry")}
-          />
-          {item.credentialId ? (
-            <Detail label={t("credentialId")} value={item.credentialId} mono />
-          ) : null}
-          {item.category ? (
-            <Detail label={t("category")} value={localize(item.category.name, locale)} />
-          ) : null}
-        </dl>
-        {item.skills.length > 0 ? (
-          <div className="space-y-2">
-            <p className="text-xs font-semibold tracking-wider text-amber uppercase">
-              {t("skills")}
-            </p>
-            <ul className="flex flex-wrap gap-2">
-              {item.skills.map((skill) => (
-                <li key={skill.id}>
-                  <SkillIcon slug={skill.iconSlug} name={skill.name} />
-                </li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
-        {item.credentialUrl ? (
-          <Button asChild className="w-full sm:w-auto">
-            <a href={item.credentialUrl} target="_blank" rel="noreferrer">
-              {t("verify")}
-              <ExternalLinkIcon aria-hidden="true" />
-            </a>
-          </Button>
-        ) : null}
-      </div>
-    </Lightbox>
+    />
   );
 }
 
 function Detail({ label, value, mono = false }: { label: string; value: string; mono?: boolean }) {
   return (
     <div className="space-y-0.5">
-      <dt className="text-xs text-muted-foreground">{label}</dt>
-      <dd className={mono ? "font-mono text-xs" : undefined}>{value}</dd>
+      <dt className="text-xs tracking-wide text-muted-foreground uppercase">{label}</dt>
+      <dd className={mono ? "font-mono text-sm" : "text-sm"}>{value}</dd>
     </div>
   );
 }

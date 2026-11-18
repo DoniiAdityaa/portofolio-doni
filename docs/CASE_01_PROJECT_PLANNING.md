@@ -153,7 +153,7 @@ The admin area is separate and is not linked from the public navigation.
 **Interaction (Confirmed):** clicking an item opens a **lightbox/modal** with the enlarged image, the details, and a "Verify" button when a credential link exists.
 
 **Acceptance criteria (Confirmed):**
-- Visitors can filter by type (Certificate / Award) and by category.
+- Visitors can search by title or issuer (CR-05) and filter by type (Certificate / Award) and by category.
 - The Verify button opens the credential link in a new tab and is hidden when there is no link.
 - The modal can be closed with a close button, the Esc key, or a click outside.
 
@@ -302,6 +302,7 @@ No open product decisions remain.
 | CR-01 | 2026-11-18 | Desktop layout becomes a centered container with a sticky sidebar (UI/UX reference style). Animation scope widened from "subtle" to rich animation (§3.5). Skill chips tinted with brand colors. Palette unchanged. | Owner, in chat |
 | CR-02 | 2026-11-18 | Background is one solid color (no gradient glow). Hero typing effect loops. No emoji in the greeting. | Owner, in chat |
 | CR-04 | 2026-11-18 | Career entries split their description into Responsibilities, What I learned, and Impact, each with an icon; career cards get creative hover animations. | Owner, in chat |
+| CR-05 | 2026-11-18 | Achievement gets a search box (title and issuer). The certificate viewer becomes a wide split view: large image left, details panel right (stacked on phones), with entry animations. | Owner, in chat |
 | CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope

@@ -1,6 +1,6 @@
 "use client";
 
-import { SearchXIcon } from "lucide-react";
+import { SearchIcon, SearchXIcon } from "lucide-react";
 import { motion } from "motion/react";
 import { useTranslations } from "next-intl";
 import type { ReactNode } from "react";
@@ -8,6 +8,7 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { EmptyState } from "@/components/ui/empty-state";
+import { Input } from "@/components/ui/input";
 import {
   Select,
   SelectContent,
@@ -22,6 +23,8 @@ export type AchievementFilterItem = {
   id: string;
   type: AchievementType;
   categoryId: string | null;
+  /** Lower-cased title and issuer, matched by the search box (CR-05). */
+  searchText: string;
   /** The card, rendered on the server. */
   node: ReactNode;
 };
@@ -40,25 +43,44 @@ const cardVariants = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.35, ease: "easeOut" as const } },
 };
 
-/** Type and category filters (Case 01 §5.3) over an animated card grid. */
+/** Search (CR-05) plus type and category filters (Case 01 §5.3) over an animated card grid. */
 export function AchievementFilter({ items, categories }: AchievementFilterProps) {
   const t = useTranslations("achievements");
   const [type, setType] = useState(ALL);
   const [category, setCategory] = useState(ALL);
+  const [query, setQuery] = useState("");
+  const keyword = query.trim().toLowerCase();
 
   const visible = items.filter(
     (item) =>
-      (type === ALL || item.type === type) && (category === ALL || item.categoryId === category),
+      (type === ALL || item.type === type) &&
+      (category === ALL || item.categoryId === category) &&
+      (keyword === "" || item.searchText.includes(keyword)),
   );
 
   function reset() {
     setType(ALL);
     setCategory(ALL);
+    setQuery("");
   }
 
   return (
     <div className="space-y-5">
       <div className="flex flex-wrap items-center gap-3">
+        <div className="relative w-full sm:w-auto sm:flex-1">
+          <SearchIcon
+            aria-hidden="true"
+            className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-muted-foreground"
+          />
+          <Input
+            type="search"
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            aria-label={t("search")}
+            placeholder={t("searchPlaceholder")}
+            className="pl-9"
+          />
+        </div>
         <Select value={type} onValueChange={setType}>
           <SelectTrigger aria-label={t("filterType")} className="w-44">
             <SelectValue />
@@ -103,7 +125,7 @@ export function AchievementFilter({ items, categories }: AchievementFilterProps)
         />
       ) : (
         <motion.ul
-          key={`${type}-${category}`}
+          key={`${type}-${category}-${keyword}`}
           className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
           variants={gridVariants}
           initial="hidden"

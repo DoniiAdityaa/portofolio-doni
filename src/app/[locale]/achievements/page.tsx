@@ -44,6 +44,7 @@ export default async function AchievementsPage() {
               id: item.id,
               type: item.type,
               categoryId: item.categoryId,
+              searchText: `${localize(item.title, locale)} ${item.issuer}`.toLowerCase(),
               node: <AchievementCard item={item} />,
             }))}
           />
