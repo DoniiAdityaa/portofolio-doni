@@ -1,6 +1,7 @@
 import { ConstructionIcon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
+import { Reveal } from "@/components/motion/reveal";
 import { EmptyState } from "@/components/ui/empty-state";
 
 import { PageHeader } from "./page-header";
@@ -17,11 +18,13 @@ export async function ComingSoonPage({ page }: ComingSoonPageProps) {
   return (
     <div className="space-y-8">
       <PageHeader title={tNav(page)} description={tPages(`${page}.description`)} />
-      <EmptyState
-        icon={ConstructionIcon}
-        title={tPages("comingSoonTitle")}
-        description={tPages("comingSoonDescription")}
-      />
+      <Reveal delay={0.1}>
+        <EmptyState
+          icon={ConstructionIcon}
+          title={tPages("comingSoonTitle")}
+          description={tPages("comingSoonDescription")}
+        />
+      </Reveal>
     </div>
   );
 }

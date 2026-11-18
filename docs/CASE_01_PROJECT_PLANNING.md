@@ -70,13 +70,14 @@ Accents are used selectively; the interface stays mostly neutral and dark.
 | Code, tags, small technical accents | JetBrains Mono |
 
 ### 3.4 Layout (Confirmed)
-- **Desktop:** fixed left sidebar containing a short profile (photo, name, role), navigation menu, social links, language toggle, and Download CV.
+- **Desktop:** the sidebar and the page content sit together in one **centered container** (not stretched edge to edge); the sidebar stays in place (sticky) while the content scrolls. The sidebar contains a short profile (photo, name, role), navigation menu, social links, language toggle, and Download CV.
 - **Mobile:** the sidebar becomes a **top bar** (name + menu button) with a **side drawer** holding the same content.
 - **Tablet:** keeps the left sidebar. The top bar + drawer is used on phone widths only. The exact breakpoint is set during design-system work.
 
-### 3.5 Playful details (Confirmed)
+### 3.5 Playful details (Confirmed; animation scope widened by CR-01)
 - Tech tags styled like code, e.g. `<flutter />`.
-- Subtle hover motion on cards and skill icons.
+- **Rich animation (CR-01):** content fades/slides in on page load and on scroll, page transitions, a sliding active-menu indicator, hover lift on cards and skill chips, tilt on cards, a typing effect in the Home hero, and a soft animated glow in the background.
+- Skill chips use a light tint of each brand's color (e.g. Flutter blue, Laravel red).
 - Contribution graph colored with the Teal/Sky palette instead of GitHub green.
 - All motion respects the visitor's "reduce motion" setting.
 
@@ -292,6 +293,12 @@ The admin area is separate and is not linked from the public navigation.
 | 7 | Playful details | Code-style tags, subtle hover motion, Teal/Sky contribution graph, all respecting reduced motion. |
 
 No open product decisions remain.
+
+## 10a. Change log
+
+| ID | Date | Change | Approved |
+|---|---|---|---|
+| CR-01 | 2026-11-18 | Desktop layout becomes a centered container with a sticky sidebar (UI/UX reference style). Animation scope widened from "subtle" to rich animation (§3.5). Skill chips tinted with brand colors. Palette unchanged. | Owner, in chat |
 
 ## 11. Out of scope
 

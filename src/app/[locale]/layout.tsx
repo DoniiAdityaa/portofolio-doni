@@ -5,6 +5,7 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
 import { AppShell } from "@/components/layout/app-shell";
+import { MotionProvider } from "@/components/motion/motion-provider";
 import { clientEnv } from "@/lib/config/client";
 import { fontVariables } from "@/lib/fonts";
 import { routing } from "@/lib/i18n/routing";
@@ -37,7 +38,9 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
     <html lang={locale} className={`${fontVariables} h-full antialiased`}>
       <body className="flex min-h-full flex-col">
         <NextIntlClientProvider>
-          <AppShell>{children}</AppShell>
+          <MotionProvider>
+            <AppShell>{children}</AppShell>
+          </MotionProvider>
         </NextIntlClientProvider>
       </body>
     </html>

@@ -1,25 +1,30 @@
 import { getTranslations } from "next-intl/server";
 
-import { DesignPreview } from "@/components/layout/design-preview";
+import { Reveal } from "@/components/motion/reveal";
+import { Typewriter } from "@/components/motion/typewriter";
 import { placeholderProfile } from "@/features/settings/placeholder-profile";
 
 /**
- * Temporary Home page for reviewing the M1 design system.
- * M2 replaces it with the real Home sections (hero, skills, featured projects).
+ * Home hero. M2 adds the skills and featured-projects sections below it,
+ * with real content from `features/*` queries.
  */
 export default async function HomePage() {
-  const t = await getTranslations("profile");
+  const tHome = await getTranslations("home");
+  const tProfile = await getTranslations("profile");
 
   return (
-    <div className="space-y-12">
-      <header className="space-y-3">
-        <p className="font-mono text-sm text-primary">Hi, I&apos;m {placeholderProfile.name} 👋</p>
-        <h1 className="text-4xl font-semibold sm:text-5xl">{t("role")}</h1>
-        <p className="max-w-2xl text-muted-foreground">
-          Design system preview for Milestone 1. Real content arrives in Milestone 2.
+    <section className="space-y-5">
+      <Reveal>
+        <p className="font-mono text-sm text-primary">
+          {tHome("greeting", { name: placeholderProfile.name })}
         </p>
-      </header>
-      <DesignPreview />
-    </div>
+      </Reveal>
+      <h1 className="text-4xl font-semibold sm:text-5xl">
+        <Typewriter text={tProfile("role")} />
+      </h1>
+      <Reveal delay={0.15}>
+        <p className="max-w-2xl leading-relaxed text-muted-foreground">{tHome("intro")}</p>
+      </Reveal>
+    </section>
   );
 }

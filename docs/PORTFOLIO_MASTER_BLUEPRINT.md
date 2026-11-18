@@ -17,7 +17,7 @@
 
 - **Goal:** personal branding. **Headline:** Mobile Developer (Flutter). **Audience:** fellow developers. **Main action:** Download CV.
 - **Languages:** English (default) and Indonesian, for UI and content, with fallback to the other language when a field is empty.
-- **Look:** Playful Professional, dark only in v1. Palette Midnight Navy `#0B1120`, Charcoal `#111827`, Slate `#1F2937`, Sky Blue `#38BDF8`, Teal `#2DD4BF`, Amber `#F59E0B`. Fonts Space Grotesk / Inter / JetBrains Mono. Sidebar on desktop and tablet; top bar + drawer on phones.
+- **Look:** Playful Professional, dark only in v1. Palette Midnight Navy `#0B1120`, Charcoal `#111827`, Slate `#1F2937`, Sky Blue `#38BDF8`, Teal `#2DD4BF`, Amber `#F59E0B`. Fonts Space Grotesk / Inter / JetBrains Mono. Centered container with a sticky sidebar on desktop and tablet; top bar + drawer on phones. Rich animation (CR-01) that respects reduced motion.
 - **UI/UX reference:** satriabahari.my.id, for look and feel only. Features follow Case 01.
 - **Pages:**
 
@@ -36,7 +36,7 @@
 ## 2. Technology (Case 02)
 
 - **Stack:** TypeScript (strict), Next.js App Router, React, Tailwind CSS, Supabase (PostgreSQL, Auth, Storage), hosted on Vercel.
-- **Libraries:** next-intl, shadcn/ui, react-hook-form + zod, react-markdown, simple-icons, lucide-react, dnd-kit.
+- **Libraries:** next-intl, shadcn/ui, react-hook-form + zod, react-markdown, simple-icons, lucide-react, dnd-kit, motion.
 - **Architecture:** public pages server-rendered and cached, refreshed when admin saves; admin always dynamic; GitHub fetched by a daily cron job into a stored snapshot; no secrets in the browser.
 - **Bilingual data:** translatable fields stored as `{ "en": ..., "id": ... }` JSON.
 - **Clean code:** feature-first folders (`features/<name>/components, queries, actions, schema, types`), separated layers, server components by default, small files, clear naming, no `any`, uniform action results, ESLint + Prettier.
