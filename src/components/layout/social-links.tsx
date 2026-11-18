@@ -2,7 +2,7 @@ import { BriefcaseBusinessIcon, MailIcon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { BrandIcon, findBrandIcon } from "@/components/ui/brand-icon";
-import type { SocialLink, SocialPlatform } from "@/features/settings/placeholder-profile";
+import type { SocialLink, SocialPlatform } from "@/features/settings/types";
 
 const PLATFORM_LABELS: Record<SocialPlatform, string> = {
   github: "GitHub",

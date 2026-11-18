@@ -3,9 +3,6 @@
     "title": "Portofolio",
     "description": "Portofolio developer pribadi."
   },
-  "profile": {
-    "role": "Mobile Developer (Flutter)"
-  },
   "nav": {
     "label": "Navigasi utama",
     "home": "Beranda",
@@ -59,6 +56,27 @@
   },
   "home": {
     "greeting": "Halo, saya {name} 👋",
-    "intro": "Saya membangun aplikasi mobile dengan Flutter yang nyaman dipakai. Perkenalan lengkap, skill, dan proyek unggulan akan hadir di milestone berikutnya."
+    "viewProjects": "Lihat proyek",
+    "skills": {
+      "title": "Skill",
+      "description": "Tools dan teknologi yang saya gunakan.",
+      "all": "Semua",
+      "filterLabel": "Saring skill berdasarkan kategori"
+    },
+    "featured": {
+      "title": "Proyek unggulan",
+      "description": "Beberapa hal yang baru saya bangun.",
+      "viewAll": "Lihat semua proyek"
+    }
+  },
+  "projects": {
+    "status": {
+      "completed": "Selesai",
+      "in_progress": "Sedang dikerjakan",
+      "archived": "Diarsipkan"
+    },
+    "caseStudyComingSoon": "Studi kasus lengkap segera hadir.",
+    "backToProjects": "Kembali ke proyek",
+    "techStack": "Tech stack"
   }
 }

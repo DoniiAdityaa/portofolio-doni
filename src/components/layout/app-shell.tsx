@@ -2,7 +2,7 @@ import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
 
 import { BackgroundGlow } from "@/components/motion/background-glow";
-import { placeholderProfile } from "@/features/settings/placeholder-profile";
+import { getSiteSettings } from "@/features/settings/queries";
 
 import { MobileNav } from "./mobile-nav";
 import { SidebarContent } from "./sidebar-content";
@@ -15,7 +15,7 @@ const MAIN_CONTENT_ID = "main-content";
  */
 export async function AppShell({ children }: { children: ReactNode }) {
   const t = await getTranslations("shell");
-  const profile = placeholderProfile;
+  const settings = await getSiteSettings();
 
   return (
     <>
@@ -28,13 +28,13 @@ export async function AppShell({ children }: { children: ReactNode }) {
         {t("skipToContent")}
       </a>
 
-      <MobileNav name={profile.name}>
-        <SidebarContent profile={profile} />
+      <MobileNav name={settings.name}>
+        <SidebarContent settings={settings} />
       </MobileNav>
 
       <div className="mx-auto flex w-full max-w-6xl flex-1 gap-10 px-4 sm:px-6 lg:gap-14">
         <aside className="sticky top-0 hidden h-dvh w-[var(--width-sidebar)] shrink-0 overflow-y-auto py-8 md:block">
-          <SidebarContent profile={profile} />
+          <SidebarContent settings={settings} />
         </aside>
 
         <main

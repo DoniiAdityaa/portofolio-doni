@@ -1,7 +1,9 @@
-import { getTranslations } from "next-intl/server";
+import { getLocale } from "next-intl/server";
 
 import { Separator } from "@/components/ui/separator";
-import type { ProfileSummary } from "@/features/settings/placeholder-profile";
+import { getInitials } from "@/features/settings/queries";
+import type { SiteSettings } from "@/features/settings/types";
+import { localize } from "@/lib/i18n/localize";
 
 import { DownloadCvButton } from "./download-cv-button";
 import { LanguageToggle } from "./language-toggle";
@@ -10,16 +12,16 @@ import { ProfileAvatar } from "./profile-avatar";
 import { SocialLinks } from "./social-links";
 
 /** Everything in the sidebar; shared by the desktop sidebar and the mobile drawer. */
-export async function SidebarContent({ profile }: { profile: ProfileSummary }) {
-  const t = await getTranslations("profile");
+export async function SidebarContent({ settings }: { settings: SiteSettings }) {
+  const locale = await getLocale();
 
   return (
     <div className="flex h-full flex-col gap-6 p-5 md:px-0 md:py-2">
       <div className="flex flex-col items-center gap-3 text-center">
-        <ProfileAvatar initials={profile.initials} />
+        <ProfileAvatar initials={getInitials(settings.name)} />
         <div>
-          <p className="font-heading text-xl font-semibold">{profile.name}</p>
-          <p className="text-sm text-muted-foreground">{t("role")}</p>
+          <p className="font-heading text-xl font-semibold">{settings.name}</p>
+          <p className="text-sm text-muted-foreground">{localize(settings.headline, locale)}</p>
         </div>
         <LanguageToggle />
       </div>
@@ -29,9 +31,9 @@ export async function SidebarContent({ profile }: { profile: ProfileSummary }) {
 
       <div className="mt-auto space-y-4">
         <Separator />
-        <DownloadCvButton />
+        <DownloadCvButton className="w-full" />
         <div className="flex justify-center">
-          <SocialLinks links={profile.socialLinks} />
+          <SocialLinks links={settings.socialLinks} />
         </div>
       </div>
     </div>
