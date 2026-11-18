@@ -12,6 +12,8 @@ export type SiteSettings = {
   name: string;
   headline: LocalizedText;
   shortIntro: LocalizedText;
+  /** About page story; paragraphs separated by a blank line. */
+  fullIntro: LocalizedText;
   socialLinks: SocialLink[];
   githubUsername: string | null;
 };

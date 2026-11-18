@@ -7,7 +7,7 @@ import { EmptyState } from "@/components/ui/empty-state";
 import { PageHeader } from "./page-header";
 
 type ComingSoonPageProps = {
-  page: "about" | "achievements" | "projects" | "dashboard" | "contact";
+  page: "achievements" | "projects" | "dashboard" | "contact";
 };
 
 /** Temporary page body for routes whose content is built in M2. */

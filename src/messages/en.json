@@ -78,5 +78,32 @@
     "caseStudyComingSoon": "The full case study is coming soon.",
     "backToProjects": "Back to projects",
     "techStack": "Tech stack"
+  },
+  "about": {
+    "intro": {
+      "title": "Hello there",
+      "signature": "Best regards,"
+    },
+    "career": {
+      "title": "Career",
+      "description": "My professional journey."
+    },
+    "education": {
+      "title": "Education",
+      "description": "Where I studied."
+    },
+    "type": {
+      "full_time": "Full-time",
+      "internship": "Internship",
+      "freelance": "Freelance",
+      "contract": "Contract"
+    },
+    "showDetails": "Show details",
+    "hideDetails": "Hide details",
+    "techUsed": "Tech used",
+    "duration": {
+      "years": "{count, plural, one {# yr} other {# yrs}}",
+      "months": "{count, plural, one {# mo} other {# mos}}"
+    }
   }
 }

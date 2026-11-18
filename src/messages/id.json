@@ -78,5 +78,32 @@
     "caseStudyComingSoon": "Studi kasus lengkap segera hadir.",
     "backToProjects": "Kembali ke proyek",
     "techStack": "Tech stack"
+  },
+  "about": {
+    "intro": {
+      "title": "Halo",
+      "signature": "Salam hangat,"
+    },
+    "career": {
+      "title": "Karier",
+      "description": "Perjalanan profesional saya."
+    },
+    "education": {
+      "title": "Pendidikan",
+      "description": "Tempat saya belajar."
+    },
+    "type": {
+      "full_time": "Penuh waktu",
+      "internship": "Magang",
+      "freelance": "Freelance",
+      "contract": "Kontrak"
+    },
+    "showDetails": "Lihat detail",
+    "hideDetails": "Sembunyikan detail",
+    "techUsed": "Teknologi",
+    "duration": {
+      "years": "{count} thn",
+      "months": "{count} bln"
+    }
   }
 }
