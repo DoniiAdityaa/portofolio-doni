@@ -27,13 +27,29 @@ jobs:
       - run: pnpm test
       - run: pnpm build
 
+  database:
+    name: Database (migrations, seed, RLS tests)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      # Applies every migration and the seed from scratch, so a broken migration fails here.
+      - run: supabase start -x studio,edge-runtime,imgproxy,vector,logflare,supavisor,mailpit,postgres-meta
+      - run: supabase test db
+
   e2e:
     name: End-to-end tests
     # Case 03: E2E runs on Pull Requests to main.
-    # Local Supabase is started here from M3 on, once the database exists.
     if: github.event_name == 'pull_request' && github.base_ref == 'main'
     needs: checks
     runs-on: ubuntu-latest
+    env:
+      # Public pages still use dummy data (until M5). The admin tests only need a URL and key
+      # to exist: without a session cookie, the route guard never calls Supabase.
+      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
+      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_placeholder
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
