@@ -68,6 +68,7 @@ Accents are used selectively; the interface stays mostly neutral and dark.
 | Headings | Space Grotesk |
 | Body text | Inter |
 | Code, tags, small technical accents | JetBrains Mono |
+| Handwritten signature on About (CR-03) | Dancing Script |
 
 ### 3.4 Layout (Confirmed)
 - **Desktop:** the sidebar and the page content sit together in one **centered container** (not stretched edge to edge); the sidebar stays in place (sticky) while the content scrolls. The sidebar contains a short profile (photo, name, role), navigation menu, social links, language toggle, and Download CV.
@@ -300,6 +301,7 @@ No open product decisions remain.
 |---|---|---|---|
 | CR-01 | 2026-11-18 | Desktop layout becomes a centered container with a sticky sidebar (UI/UX reference style). Animation scope widened from "subtle" to rich animation (§3.5). Skill chips tinted with brand colors. Palette unchanged. | Owner, in chat |
 | CR-02 | 2026-11-18 | Background is one solid color (no gradient glow). Hero typing effect loops. No emoji in the greeting. | Owner, in chat |
+| CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope
 

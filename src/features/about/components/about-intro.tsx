@@ -1,6 +1,7 @@
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { Reveal } from "@/components/motion/reveal";
+import { Signature } from "@/components/motion/signature";
 import type { SiteSettings } from "@/features/settings/types";
 import { localize } from "@/lib/i18n/localize";
 
@@ -24,7 +25,9 @@ export async function AboutIntro({ settings }: { settings: SiteSettings }) {
       <Reveal delay={paragraphs.length * 0.08}>
         <p className="pt-2">
           {t("signature")}
-          <span className="mt-1 block font-heading text-xl text-foreground">{settings.name}</span>
+          <span className="mt-3 block">
+            <Signature name={settings.name} />
+          </span>
         </p>
       </Reveal>
     </section>
