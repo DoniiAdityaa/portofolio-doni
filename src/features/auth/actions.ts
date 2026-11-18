@@ -20,8 +20,13 @@ export async function signIn(_previous: SignInState, formData: FormData): Promis
 
   const supabase = await createSupabaseServerClient();
   const { error } = await supabase.auth.signInWithPassword(parsed.data);
-  // One message for every failure, so the form never reveals which emails exist.
-  if (error) return { error: "Wrong email or password.", email };
+  if (error) {
+    // Supabase answers 400 for bad credentials without saying which part was wrong,
+    // so the form never reveals which emails exist. Anything else is a service problem.
+    if (error.status === 400) return { error: "Wrong email or password.", email };
+    console.error("[auth] Sign-in failed", error);
+    return { error: "Sign-in is unavailable right now. Try again in a moment.", email };
+  }
 
   const { data: isAdmin } = await supabase.rpc("is_admin");
   if (!isAdmin) {
