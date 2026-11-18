@@ -73,6 +73,7 @@ export function ExperienceForm({
           render={({ field }) => (
             <ImageUpload
               label="Company logo"
+              aspect={1}
               folder="career/logos"
               value={field.value}
               onChange={field.onChange}

@@ -143,6 +143,7 @@ export function AchievementForm({
           render={({ field }) => (
             <ImageUpload
               label="Certificate image"
+              aspect={4 / 3}
               folder="achievements"
               value={field.value}
               onChange={field.onChange}
