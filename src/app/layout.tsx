@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { clientEnv } from "@/lib/env/client";
+import { clientEnv } from "@/lib/config/client";
 
 import "./globals.css";
 

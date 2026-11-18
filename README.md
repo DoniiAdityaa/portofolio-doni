@@ -53,7 +53,7 @@ src/
 ├── features/         # one folder per domain: components, queries, actions, schema, types
 ├── components/ui/    # shared UI primitives
 ├── components/layout/
-├── lib/              # env, supabase clients, i18n, utils
+├── lib/              # config (validated env), supabase clients, i18n, utils
 └── messages/         # UI translations (en.json, id.json)
 supabase/migrations/  # versioned SQL schema changes
 e2e/                  # Playwright tests
