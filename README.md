@@ -68,4 +68,4 @@ docs/                 # planning documents
 
 ## Status
 
-Milestone 0 — repository and tooling. See [`CASE_03_DEVELOPMENT_PLANNING.md`](docs/CASE_03_DEVELOPMENT_PLANNING.md) for what comes next.
+Milestone 1 — design system and layout shell. See [`CASE_03_DEVELOPMENT_PLANNING.md`](docs/CASE_03_DEVELOPMENT_PLANNING.md) for what comes next.

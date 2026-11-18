@@ -1,0 +1,50 @@
+{
+  "metadata": {
+    "title": "Portofolio",
+    "description": "Portofolio developer pribadi."
+  },
+  "profile": {
+    "role": "Mobile Developer (Flutter)"
+  },
+  "nav": {
+    "label": "Navigasi utama",
+    "home": "Beranda",
+    "about": "Tentang",
+    "achievements": "Pencapaian",
+    "projects": "Proyek",
+    "dashboard": "Dashboard",
+    "contact": "Kontak"
+  },
+  "shell": {
+    "downloadCv": "Unduh CV",
+    "cvComingSoon": "Unduhan CV akan segera tersedia",
+    "language": "Bahasa",
+    "openMenu": "Buka menu",
+    "menuTitle": "Menu",
+    "skipToContent": "Langsung ke konten",
+    "socialLinks": "Tautan sosial"
+  },
+  "pages": {
+    "comingSoonTitle": "Segera hadir",
+    "comingSoonDescription": "Halaman ini sedang dibuat.",
+    "about": { "description": "Siapa saya, tempat saya bekerja, dan tempat saya belajar." },
+    "achievements": { "description": "Sertifikat dan penghargaan yang saya raih." },
+    "projects": { "description": "Hal-hal yang saya bangun." },
+    "dashboard": { "description": "Aktivitas GitHub saya." },
+    "contact": { "description": "Hubungi saya." }
+  },
+  "notFound": {
+    "title": "Halaman tidak ditemukan",
+    "description": "Halaman yang kamu cari tidak ada atau sudah dipindahkan.",
+    "backHome": "Kembali ke beranda"
+  },
+  "error": {
+    "title": "Terjadi kesalahan",
+    "description": "Ada kesalahan yang tidak terduga. Silakan coba lagi.",
+    "retry": "Coba lagi"
+  },
+  "common": {
+    "close": "Tutup",
+    "present": "Sekarang"
+  }
+}

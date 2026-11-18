@@ -1,3 +1,123 @@
 @import "tailwindcss";
+@import "tw-animate-css";
 
-/* Design tokens (palette, fonts, radius) are added in M1. */
+/* Short state variants used by the shadcn/ui components, mapped to Radix data attributes. */
+@custom-variant data-open (&[data-state="open"]);
+@custom-variant data-closed (&[data-state="closed"]);
+@custom-variant data-active (&[data-state="active"]);
+@custom-variant data-horizontal (&[data-orientation="horizontal"]);
+@custom-variant data-vertical (&[data-orientation="vertical"]);
+
+/*
+ * Design tokens — palette and fonts from docs/CASE_01_PROJECT_PLANNING.md §3.
+ * The site is dark-only in v1. Component code uses semantic names
+ * (bg-card, text-muted-foreground, ...) and never raw hex values.
+ */
+
+:root {
+  /* Brand palette */
+  --midnight: #0b1120;
+  --charcoal: #111827;
+  --slate: #1f2937;
+  --sky: #38bdf8;
+  --teal: #2dd4bf;
+  --amber: #f59e0b;
+
+  /* Semantic tokens (names follow shadcn/ui conventions) */
+  --background: var(--midnight);
+  --foreground: #e2e8f0;
+  --card: var(--charcoal);
+  --card-foreground: var(--foreground);
+  --popover: var(--charcoal);
+  --popover-foreground: var(--foreground);
+  --primary: var(--sky);
+  --primary-foreground: var(--midnight);
+  --secondary: var(--slate);
+  --secondary-foreground: var(--foreground);
+  --muted: var(--slate);
+  --muted-foreground: #94a3b8;
+  --accent: var(--slate);
+  --accent-foreground: var(--foreground);
+  --highlight: var(--amber);
+  --destructive: #f87171;
+  --border: #243044;
+  --input: #2b3a50;
+  --ring: var(--sky);
+  --radius: 0.75rem;
+
+  color-scheme: dark;
+}
+
+@theme inline {
+  --color-midnight: var(--midnight);
+  --color-charcoal: var(--charcoal);
+  --color-slate: var(--slate);
+  --color-sky: var(--sky);
+  --color-teal: var(--teal);
+  --color-amber: var(--amber);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-highlight: var(--highlight);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+
+  /* Font variables are set by next/font in the root layout. */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-space-grotesk), var(--font-inter), ui-sans-serif, sans-serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, monospace;
+
+  --width-sidebar: 16.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background font-sans text-foreground;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-heading tracking-tight;
+  }
+
+  ::selection {
+    @apply bg-primary/30;
+  }
+}
+
+/* Respect the visitor's reduced-motion setting (Case 01 §3.5). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
