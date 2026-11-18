@@ -36,7 +36,7 @@ const EMPTY_SETTINGS: SiteSettings = {
 /** Site-wide profile and settings (the single `site_settings` row), cached until edited. */
 export async function getSiteSettings(): Promise<SiteSettings> {
   "use cache";
-  cacheLife("days");
+  cacheLife("content");
   cacheTag(CACHE_TAGS.settings);
 
   const { data, error } = await createSupabasePublicClient()

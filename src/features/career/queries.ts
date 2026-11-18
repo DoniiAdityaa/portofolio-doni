@@ -13,7 +13,7 @@ export type ExperienceWithSkills = Experience & { techStack: Skill[] };
 /** Published career entries, newest first unless reordered in admin. Cached until edited. */
 async function loadExperiences(): Promise<Experience[]> {
   "use cache";
-  cacheLife("days");
+  cacheLife("content");
   cacheTag(CACHE_TAGS.career);
 
   const { data, error } = await createSupabasePublicClient()

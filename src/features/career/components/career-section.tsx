@@ -55,7 +55,7 @@ export async function CareerSection() {
               item.techStack.length > 0;
 
             return (
-              <RevealItem key={item.id}>
+              <RevealItem key={item.id} as="li">
                 <TimelineItem
                   title={localize(item.position, locale)}
                   subtitle={item.company}

@@ -277,14 +277,15 @@ Translatable fields use type `jsonb` holding `{ "en": ..., "id": ... }` (see §5
 - `.env.local` is in `.gitignore`; a `.env.example` with empty values is committed.
 
 ## 13. Security checklist (Confirmed)
-- [ ] RLS enabled on **every** table; no table is readable or writable without a policy.
-- [ ] Secret keys used only in server files (enforced with the `server-only` package).
-- [ ] Every admin server action re-checks admin status.
-- [ ] All input validated server-side with Zod, even when the form already validated it.
-- [ ] Markdown rendered without raw HTML.
-- [ ] Upload type and size checked on the server and by bucket policy.
-- [ ] Security headers set (Content-Security-Policy, X-Frame-Options, Referrer-Policy).
-- [ ] Admin pages marked `noindex`.
+- [x] RLS enabled on **every** table; no table is readable or writable without a policy.
+- [x] Secret keys used only in server files (enforced with the `server-only` package).
+- [x] Every admin server action re-checks admin status.
+- [x] All input validated server-side with Zod, even when the form already validated it.
+- [x] Markdown rendered without raw HTML.
+- [x] Upload type and size checked on the server and by bucket policy.
+- [x] Security headers set (Content-Security-Policy, X-Frame-Options, Referrer-Policy).
+- [x] Admin pages marked `noindex`.
+- Dependency audit (M7): one high-severity advisory in `picomatch`, pulled in by next-intl's dev file watcher. No patched version exists; it only parses glob patterns written in our code, never visitor input. Accepted, recheck at M8.
 
 ## 14. Accessibility and performance targets (Confirmed)
 - WCAG AA contrast with the Case 01 palette (to verify when tokens are built).

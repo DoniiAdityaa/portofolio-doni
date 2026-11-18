@@ -22,7 +22,7 @@ type TimelineItemProps = {
 
 /**
  * One timeline entry. On hover the card lifts with a pointer spotlight,
- * the logo tilts, and the timeline dot pulses.
+ * the logo tilts, and the timeline dot pulses. Wrap it in an <li> (e.g. RevealItem as="li").
  */
 export function TimelineItem({
   title,
@@ -33,7 +33,7 @@ export function TimelineItem({
   children,
 }: TimelineItemProps) {
   return (
-    <li className="group/item relative">
+    <div className="group/item relative">
       <span aria-hidden="true" className="absolute top-2 -left-[1.82rem] flex size-2.5">
         <span className="absolute inset-0 rounded-full bg-primary opacity-0 group-hover/item:animate-ping group-hover/item:opacity-40" />
         <span className="relative size-2.5 rounded-full bg-primary ring-4 ring-background transition-transform duration-300 group-hover/item:scale-125" />
@@ -56,6 +56,6 @@ export function TimelineItem({
           {children ? <div className="pt-2 text-sm text-muted-foreground">{children}</div> : null}
         </div>
       </SpotlightCard>
-    </li>
+    </div>
   );
 }

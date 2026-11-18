@@ -74,7 +74,7 @@ export async function AchievementCard({ item }: { item: AchievementWithRelations
       trigger={
         <button
           type="button"
-          aria-label={t("viewDetails", { title })}
+          aria-haspopup="dialog"
           className="group flex h-full w-full flex-col overflow-hidden rounded-xl border bg-card text-left transition-[transform,border-color,box-shadow] duration-300 hover:-translate-y-0.5 hover:border-primary/40 hover:shadow-lg hover:shadow-black/20 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
         >
           <AchievementArtwork type={item.type} issuer={item.issuer} imagePath={item.imagePath} />

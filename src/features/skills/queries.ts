@@ -9,7 +9,7 @@ import type { Skill, SkillCategory, SkillGroup } from "./types";
 /** Categories and published skills, in their manual order. Cached until edited in admin. */
 async function loadSkills(): Promise<{ categories: SkillCategory[]; skills: Skill[] }> {
   "use cache";
-  cacheLife("days");
+  cacheLife("content");
   cacheTag(CACHE_TAGS.skills);
 
   const supabase = createSupabasePublicClient();

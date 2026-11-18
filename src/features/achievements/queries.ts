@@ -19,7 +19,7 @@ async function loadAchievements(): Promise<{
   achievements: Achievement[];
 }> {
   "use cache";
-  cacheLife("days");
+  cacheLife("content");
   cacheTag(CACHE_TAGS.achievements);
 
   const supabase = createSupabasePublicClient();

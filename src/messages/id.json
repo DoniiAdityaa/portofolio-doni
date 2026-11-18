@@ -51,8 +51,8 @@
     "backHome": "Kembali ke beranda"
   },
   "error": {
-    "title": "Terjadi kesalahan",
-    "description": "Ada kesalahan yang tidak terduga. Silakan coba lagi.",
+    "title": "Sementara tidak tersedia",
+    "description": "Bagian ini belum bisa dimuat sekarang. Silakan coba lagi sebentar lagi.",
     "retry": "Coba lagi"
   },
   "common": {
@@ -164,7 +164,6 @@
     "category": "Kategori",
     "skills": "Skill terkait",
     "verify": "Verifikasi kredensial",
-    "viewDetails": "Lihat detail {title}",
     "emptyTitle": "Tidak ada yang cocok dengan filter ini",
     "emptyDescription": "Coba kata kunci, jenis, atau kategori lain.",
     "reset": "Reset filter",

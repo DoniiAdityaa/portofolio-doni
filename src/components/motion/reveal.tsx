@@ -52,7 +52,24 @@ export function RevealGroup({ children, className }: { children: ReactNode; clas
   );
 }
 
-export function RevealItem({ children, className }: { children: ReactNode; className?: string }) {
+export function RevealItem({
+  children,
+  className,
+  as = "div",
+}: {
+  children: ReactNode;
+  className?: string;
+  /** Use "li" inside lists, so the list keeps valid markup. */
+  as?: "div" | "li";
+}) {
+  if (as === "li") {
+    return (
+      <motion.li className={className} variants={itemVariants}>
+        {children}
+      </motion.li>
+    );
+  }
+
   return (
     <motion.div className={className} variants={itemVariants}>
       {children}
