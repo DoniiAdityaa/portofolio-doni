@@ -11,8 +11,10 @@ import type { Database } from "./database.types";
  * It acts as the signed-in visitor, so Row Level Security always applies.
  */
 export async function createSupabaseServerClient() {
-  const { url, publishableKey } = getSupabaseConfig();
+  // Read cookies first: it marks the caller as request-time, so prerendering at build
+  // stops here and never needs the Supabase config.
   const cookieStore = await cookies();
+  const { url, publishableKey } = getSupabaseConfig();
 
   return createServerClient<Database>(url, publishableKey, {
     cookies: {
