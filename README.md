@@ -32,6 +32,26 @@ pnpm dev
 
 Open http://localhost:3000.
 
+### Local database (Supabase)
+
+```bash
+pnpm db:start   # starts Postgres, Auth, Storage, and the API in Docker
+```
+
+Copy the printed API URL and publishable key into `NEXT_PUBLIC_SUPABASE_URL` and
+`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` in `.env.local`. `pnpm db:reset` rebuilds the database
+from `supabase/migrations/` and loads `supabase/seed.sql` (sample content).
+
+Public sign-up is disabled. To get an admin account locally, create a user with the
+Supabase CLI or Studio (`supabase start` without `-x` includes Studio), then add it as admin:
+
+```sql
+insert into public.admin_users (user_id)
+select id from auth.users where email = 'you@example.com';
+```
+
+Then sign in at http://localhost:3000/admin.
+
 ## Scripts
 
 | Command                             | What it does                                                                          |
@@ -44,6 +64,10 @@ Open http://localhost:3000.
 | `pnpm test` / `pnpm test:watch`     | Unit tests (Vitest)                                                                   |
 | `pnpm test:e2e`                     | End-to-end tests (Playwright); run `pnpm exec playwright install chromium` once first |
 | `pnpm check`                        | Lint, format check, type check, and unit tests in one go                              |
+| `pnpm db:start` / `pnpm db:stop`    | Start / stop local Supabase (Docker)                                                  |
+| `pnpm db:reset`                     | Rebuild the local database from migrations and seed                                   |
+| `pnpm db:test`                      | Row Level Security tests (pgTAP, `supabase/tests/`)                                   |
+| `pnpm db:types`                     | Regenerate `src/lib/supabase/database.types.ts` after a migration                     |
 
 ## Project structure
 
@@ -56,6 +80,8 @@ src/
 ├── lib/              # config (validated env), supabase clients, i18n, utils
 └── messages/         # UI translations (en.json, id.json)
 supabase/migrations/  # versioned SQL schema changes
+supabase/tests/       # database (RLS) tests
+supabase/seed.sql     # sample content for local development
 e2e/                  # Playwright tests
 docs/                 # planning documents
 ```
@@ -68,4 +94,4 @@ docs/                 # planning documents
 
 ## Status
 
-Milestone 1 — design system and layout shell. See [`CASE_03_DEVELOPMENT_PLANNING.md`](docs/CASE_03_DEVELOPMENT_PLANNING.md) for what comes next.
+Milestone 3 — database, auth, and storage (public pages still use dummy data until M5). See [`CASE_03_DEVELOPMENT_PLANNING.md`](docs/CASE_03_DEVELOPMENT_PLANNING.md) for what comes next.

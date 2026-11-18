@@ -121,10 +121,10 @@ Each milestone lists tasks and a **completion checklist**. A milestone is done o
 7. Admin login page, session handling, route guard for `/admin/(protected)`, and the `requireAdmin()` helper for server actions.
 
 **Completion checklist**
-- [ ] `supabase db reset` rebuilds the database from migrations and seed with no errors.
-- [ ] RLS tests: anonymous users can read only published, non-archived rows; they cannot write content or read messages; the admin can do everything.
-- [ ] Unauthenticated visits to admin pages redirect to login.
-- [ ] Public sign-up is disabled.
+- [x] `supabase db reset` rebuilds the database from migrations and seed with no errors.
+- [x] RLS tests: anonymous users can read only published, non-archived rows; they cannot write content or read messages; the admin can do everything.
+- [x] Unauthenticated visits to admin pages redirect to login.
+- [x] Public sign-up is disabled.
 
 ### M4 — Admin modules
 **Build the shared patterns first, then reuse them in every module.**
