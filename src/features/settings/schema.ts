@@ -30,6 +30,7 @@ const socialLinkSchema = z
 /** Site Settings form (Case 03 M4 #4), validated in the browser and again on the server. */
 export const siteSettingsFormSchema = z.object({
   name: z.string().trim().min(1, "Name is required.").max(80),
+  photoPath: z.string().max(300).nullable(),
   headline: localizedTextSchema({ max: 120, required: true }),
   roles: z
     .array(z.object({ text: localizedTextSchema({ max: 40, required: true }) }))

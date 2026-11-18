@@ -122,12 +122,13 @@ enabled = true
 # The maximum file size allowed (e.g. "5MB", "500KB").
 file_size_limit = "50MiB"
 
-# Uncomment to configure local storage buckets
-# [storage.buckets.images]
-# public = false
-# file_size_limit = "50MiB"
-# allowed_mime_types = ["image/png", "image/jpeg"]
-# objects_path = "./images"
+# Local copy of the media bucket from the migration, plus seed images for development.
+# `supabase start` and `supabase db reset` upload ./seed-media into it.
+[storage.buckets.media]
+public = true
+file_size_limit = "5MiB"
+allowed_mime_types = ["image/jpeg", "image/png", "image/webp"]
+objects_path = "./seed-media"
 
 # Allow connections via S3 compatible clients
 [storage.s3_protocol]

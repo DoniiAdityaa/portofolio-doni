@@ -9,6 +9,7 @@ import { toast } from "sonner";
 import { BilingualField } from "@/components/admin/bilingual-field";
 import { FormField } from "@/components/admin/form-field";
 import { FormSection } from "@/components/admin/form-section";
+import { ImageUpload } from "@/components/admin/image-upload";
 import { PLATFORM_LABELS } from "@/components/layout/social-icon";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -60,6 +61,18 @@ export function SettingsForm({ defaultValues }: { defaultValues: SiteSettingsFor
         <FormField id="name" label="Name" error={errors.name?.message}>
           <Input id="name" autoComplete="off" {...register("name")} />
         </FormField>
+        <Controller
+          control={control}
+          name="photoPath"
+          render={({ field }) => (
+            <ImageUpload
+              label="Profile photo"
+              folder="profile"
+              value={field.value}
+              onChange={field.onChange}
+            />
+          )}
+        />
         <BilingualField
           label="Headline"
           hint="Typed on Home, e.g. Mobile Developer (Flutter)."

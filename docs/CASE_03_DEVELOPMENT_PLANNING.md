@@ -163,9 +163,9 @@ Each milestone lists tasks and a **completion checklist**. A milestone is done o
 
 **Completion checklist**
 - [ ] A change saved in admin appears on the public site within seconds.
-- [ ] Draft content never appears publicly.
+- [x] Draft content never appears publicly.
 - [ ] No page component changed apart from imports (confirms the M2 rule worked).
-- [ ] All E2E tests from M2 still pass on real data.
+- [x] All E2E tests from M2 still pass on real data.
 
 ### M6 — Integrations
 **Tasks**

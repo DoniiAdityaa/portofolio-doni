@@ -94,4 +94,4 @@ docs/                 # planning documents
 
 ## Status
 
-Milestone 3 — database, auth, and storage (public pages still use dummy data until M5). See [`CASE_03_DEVELOPMENT_PLANNING.md`](docs/CASE_03_DEVELOPMENT_PLANNING.md) for what comes next.
+Milestone 5 — the public site reads real data from Supabase. See [`CASE_03_DEVELOPMENT_PLANNING.md`](docs/CASE_03_DEVELOPMENT_PLANNING.md) for what comes next.

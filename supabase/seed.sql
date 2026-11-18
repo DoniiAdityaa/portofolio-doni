@@ -119,3 +119,15 @@ insert into public.project_skills (project_id, skill_id) values
   ('19db8df9-8722-4822-ab23-62f7c4cdbd65', 'e36bd877-811a-4396-a28a-8558093a98af'),
   ('19db8df9-8722-4822-ab23-62f7c4cdbd65', '4243656a-1f2c-4194-a362-b8603dd1566c'),
   ('19db8df9-8722-4822-ab23-62f7c4cdbd65', 'a2559692-acc7-4f92-a747-56da8f77ea31');
+
+-- Gallery placeholders: local-only images from supabase/seed-media, uploaded to the
+-- media bucket by `supabase start` / `supabase db reset` (see config.toml).
+insert into public.project_images (project_id, path, alt, orientation, sort_order) values
+  ('3a824cdc-8fa0-45c7-a085-fac586240033', 'seed/pokeatlas-1.png', '{"en": "Pokédex list", "id": "Daftar Pokédex"}'::jsonb, 'portrait', 1),
+  ('3a824cdc-8fa0-45c7-a085-fac586240033', 'seed/pokeatlas-2.png', '{"en": "Pokémon detail", "id": "Detail Pokémon"}'::jsonb, 'portrait', 2),
+  ('3a824cdc-8fa0-45c7-a085-fac586240033', 'seed/pokeatlas-3.png', '{"en": "Search", "id": "Pencarian"}'::jsonb, 'portrait', 3),
+  ('3a824cdc-8fa0-45c7-a085-fac586240033', 'seed/pokeatlas-4.png', '{"en": "Favorites", "id": "Favorit"}'::jsonb, 'portrait', 4),
+  ('6b0dab44-1997-4973-a8fa-285152578a0b', 'seed/laundry-hub-1.png', '{"en": "Order status", "id": "Status pesanan"}'::jsonb, 'portrait', 1),
+  ('6b0dab44-1997-4973-a8fa-285152578a0b', 'seed/laundry-hub-2.png', '{"en": "Order history", "id": "Riwayat pesanan"}'::jsonb, 'portrait', 2),
+  ('f8a5a269-0459-441d-a452-be49167a6117', 'seed/stockwise-1.png', '{"en": "Dashboard", "id": "Dashboard"}'::jsonb, 'landscape', 1),
+  ('f8a5a269-0459-441d-a452-be49167a6117', 'seed/stockwise-2.png', '{"en": "Stock list", "id": "Daftar stok"}'::jsonb, 'landscape', 2);

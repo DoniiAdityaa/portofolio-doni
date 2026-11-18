@@ -21,7 +21,7 @@ export async function SidebarContent({ settings }: { settings: SiteSettings }) {
   return (
     <div className="flex h-full flex-col gap-6 p-5 md:px-0 md:py-2">
       <div className="flex flex-col items-center gap-3 text-center">
-        <ProfileAvatar initials={getInitials(settings.name)} />
+        <ProfileAvatar initials={getInitials(settings.name)} photoPath={settings.photoPath} />
         <p className="font-heading text-xl font-semibold">{settings.name}</p>
         <RoleCard roles={roles.length > 0 ? roles : [localize(settings.headline, locale)]} />
         <div className="flex items-center gap-2">

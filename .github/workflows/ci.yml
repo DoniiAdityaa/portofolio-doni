@@ -25,6 +25,16 @@ jobs:
       - run: pnpm format:check
       - run: pnpm typecheck
       - run: pnpm test
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      # From M5 the public pages read Supabase, also while prerendering at build time.
+      - run: supabase start -x studio,edge-runtime,imgproxy,vector,logflare,supavisor,mailpit,postgres-meta
+      - name: Point the app at local Supabase
+        run: |
+          supabase status -o env \
+            | sed -n 's/^API_URL=/NEXT_PUBLIC_SUPABASE_URL=/p; s/^PUBLISHABLE_KEY=/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=/p' \
+            | tr -d '"' >> "$GITHUB_ENV"
       - run: pnpm build
 
   database:
@@ -45,11 +55,6 @@ jobs:
     if: github.event_name == 'pull_request' && github.base_ref == 'main'
     needs: checks
     runs-on: ubuntu-latest
-    env:
-      # Public pages still use dummy data (until M5). The admin tests only need a URL and key
-      # to exist: without a session cookie, the route guard never calls Supabase.
-      NEXT_PUBLIC_SUPABASE_URL: http://127.0.0.1:54321
-      NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY: sb_publishable_ci_placeholder
     steps:
       - uses: actions/checkout@v4
       - uses: pnpm/action-setup@v4
@@ -58,6 +63,16 @@ jobs:
           node-version: 24
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - uses: supabase/setup-cli@v1
+        with:
+          version: latest
+      # From M5 the public pages read Supabase, also while prerendering at build time.
+      - run: supabase start -x studio,edge-runtime,imgproxy,vector,logflare,supavisor,mailpit,postgres-meta
+      - name: Point the app at local Supabase
+        run: |
+          supabase status -o env \
+            | sed -n 's/^API_URL=/NEXT_PUBLIC_SUPABASE_URL=/p; s/^PUBLISHABLE_KEY=/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=/p' \
+            | tr -d '"' >> "$GITHUB_ENV"
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v4

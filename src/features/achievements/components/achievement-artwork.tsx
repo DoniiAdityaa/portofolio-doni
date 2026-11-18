@@ -1,5 +1,6 @@
 import { AwardIcon, TrophyIcon } from "lucide-react";
 
+import { StorageImage } from "@/components/ui/storage-image";
 import { cn } from "@/lib/utils/cn";
 
 import type { AchievementType } from "../types";
@@ -7,14 +8,31 @@ import type { AchievementType } from "../types";
 type AchievementArtworkProps = {
   type: AchievementType;
   issuer: string;
+  /** Uploaded certificate image; placeholder art is shown while it is empty. */
+  imagePath: string | null;
   className?: string;
 };
 
-/**
- * Placeholder art shown until a certificate or award image is uploaded (dummy data, M2).
- * M5 shows the uploaded image with next/image when `imagePath` is set.
- */
-export function AchievementArtwork({ type, issuer, className }: AchievementArtworkProps) {
+/** The uploaded certificate or award image, or placeholder art until one exists. */
+export function AchievementArtwork({
+  type,
+  issuer,
+  imagePath,
+  className,
+}: AchievementArtworkProps) {
+  if (imagePath) {
+    return (
+      <div className={cn("relative aspect-[4/3] overflow-hidden bg-secondary/60", className)}>
+        <StorageImage
+          path={imagePath}
+          alt=""
+          sizes="(min-width: 768px) 33vw, 100vw"
+          className="object-contain transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+    );
+  }
+
   const Icon = type === "award" ? TrophyIcon : AwardIcon;
 
   return (

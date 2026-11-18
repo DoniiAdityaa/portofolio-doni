@@ -1,10 +1,8 @@
 import { clientEnv } from "@/lib/config/client";
 
 /**
- * The Supabase URL and publishable key, checked when a client is created.
- *
- * They stay optional in the env schema until M5, so the public pages (still on dummy
- * data) build without Supabase. Anything that talks to Supabase fails fast here instead.
+ * The Supabase URL and publishable key, checked when a client is created, so a missing
+ * value fails with a clear message on first use (builds, pages, and admin alike).
  */
 export function getSupabaseConfig(): { url: string; publishableKey: string } {
   const url = clientEnv.NEXT_PUBLIC_SUPABASE_URL;
