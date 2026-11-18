@@ -6,6 +6,7 @@ import { getSiteSettings } from "@/features/settings/queries";
 import { EndOfPage } from "./end-of-page";
 import { MobileNav } from "./mobile-nav";
 import { NavigationProgress } from "./navigation-progress";
+import { PageViewTracker } from "./page-view-tracker";
 import { SidebarContent } from "./sidebar-content";
 
 const MAIN_CONTENT_ID = "main-content";
@@ -21,6 +22,7 @@ export async function AppShell({ children }: { children: ReactNode }) {
   return (
     <>
       <NavigationProgress />
+      <PageViewTracker />
       <a
         href={`#${MAIN_CONTENT_ID}`}
         className="sr-only z-50 rounded-md bg-primary px-4 py-2 text-primary-foreground focus:not-sr-only focus:fixed focus:top-3 focus:left-3"

@@ -1,10 +1,16 @@
+import { existsSync } from "node:fs";
+
 import { defineConfig, devices } from "@playwright/test";
+
+// Local runs read Supabase settings from .env.local; CI sets them in the environment.
+if (existsSync(".env.local")) process.loadEnvFile(".env.local");
 
 const PORT = 3100;
 const isCI = Boolean(process.env.CI);
 
 export default defineConfig({
   testDir: "./e2e",
+  globalSetup: "./e2e/global-setup.ts",
   fullyParallel: true,
   forbidOnly: isCI,
   retries: isCI ? 2 : 0,
@@ -23,7 +29,5 @@ export default defineConfig({
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !isCI,
     timeout: 180_000,
-    // Tests use deterministic dummy GitHub data, never the live API from .env.local.
-    env: { GITHUB_TOKEN: "" },
   },
 });

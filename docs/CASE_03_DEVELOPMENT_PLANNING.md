@@ -177,16 +177,17 @@ Each milestone lists tasks and a **completion checklist**. A milestone is done o
 
 **Completion checklist**
 - [ ] GitHub failure keeps the previous snapshot; an empty snapshot shows the friendly message.
-- [ ] Cron endpoint rejects calls without the secret.
+- [x] Cron endpoint rejects calls without the secret.
 - [ ] Page views stored without IP addresses; admin visits not counted.
 - [ ] The 4th message within an hour is rejected with a clear message; honeypot submissions are dropped silently.
-- [ ] Unit tests for GitHub data mapping, visitor hashing, and rate limiting; E2E: send a contact message and see it in the Inbox.
+- [x] Unit tests for GitHub data mapping, visitor hashing, and rate limiting; E2E: send a contact message and see it in the Inbox.
 
 ### M7 — Quality pass
 **Tasks and checklist**
 - [ ] **Responsive:** every page checked at 360px, 768px, 1024px, and 1440px.
 - [ ] **Accessibility:** keyboard-only walkthrough; screen-reader labels; alt text present; reduced motion respected; automated check (e.g. axe) with no serious issues.
 - [ ] **Security:** Case 02 §13 checklist fully checked; dependency audit clean of high-severity issues.
+- [ ] **Resilience (CR-09):** if the database cannot be reached, public pages serve the last cached content, or a friendly "temporarily unavailable" state when nothing is cached.
 - [ ] **Performance:** Lighthouse 90+ in all four categories on Home, Projects, and a project detail page.
 - [ ] **Content:** both languages proofread; no leftover dummy text on public pages.
 - [ ] **Code quality:** no `any`, no unused code, files follow Case 02 §6 rules; CI green.

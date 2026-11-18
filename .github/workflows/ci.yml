@@ -33,8 +33,11 @@ jobs:
       - name: Point the app at local Supabase
         run: |
           supabase status -o env \
-            | sed -n 's/^API_URL=/NEXT_PUBLIC_SUPABASE_URL=/p; s/^PUBLISHABLE_KEY=/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=/p' \
+            | sed -n 's/^API_URL=/NEXT_PUBLIC_SUPABASE_URL=/p; s/^PUBLISHABLE_KEY=/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=/p; s/^SECRET_KEY=/SUPABASE_SECRET_KEY=/p' \
             | tr -d '"' >> "$GITHUB_ENV"
+          # Throwaway values for CI only; production secrets live in Vercel.
+          echo "VISITOR_HASH_SALT=ci-$(openssl rand -hex 16)" >> "$GITHUB_ENV"
+          echo "CRON_SECRET=ci-$(openssl rand -hex 16)" >> "$GITHUB_ENV"
       - run: pnpm build
 
   database:
@@ -71,8 +74,11 @@ jobs:
       - name: Point the app at local Supabase
         run: |
           supabase status -o env \
-            | sed -n 's/^API_URL=/NEXT_PUBLIC_SUPABASE_URL=/p; s/^PUBLISHABLE_KEY=/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=/p' \
+            | sed -n 's/^API_URL=/NEXT_PUBLIC_SUPABASE_URL=/p; s/^PUBLISHABLE_KEY=/NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=/p; s/^SECRET_KEY=/SUPABASE_SECRET_KEY=/p' \
             | tr -d '"' >> "$GITHUB_ENV"
+          # Throwaway values for CI only; production secrets live in Vercel.
+          echo "VISITOR_HASH_SALT=ci-$(openssl rand -hex 16)" >> "$GITHUB_ENV"
+          echo "CRON_SECRET=ci-$(openssl rand -hex 16)" >> "$GITHUB_ENV"
       - run: pnpm exec playwright install --with-deps chromium
       - run: pnpm test:e2e
       - uses: actions/upload-artifact@v4

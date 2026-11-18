@@ -1,5 +1,8 @@
 import { expect, type Page, test } from "@playwright/test";
 
+import { ADMIN_STORAGE_STATE } from "./support/admin";
+import { newVisitorPage } from "./support/visitor";
+
 /** The form only: the sidebar also has an "Email" link. */
 const form = (page: Page) => page.getByRole("main").locator("form");
 
@@ -17,16 +20,34 @@ test("shows validation errors and keeps the typed input", async ({ page }) => {
   await expect(form(page).getByLabel("Email")).toHaveValue("not-an-email");
 });
 
-test("a valid message shows the notice and clears the form", async ({ page }) => {
+async function sendMessage(page: Page, message: string) {
   await page.goto("/en/contact");
-
-  await form(page).getByLabel("Name").fill("Doni");
-  await form(page).getByLabel("Email").fill("doni@example.com");
-  await form(page).getByLabel("Message").fill("Hello! I'd like to talk about a Flutter project.");
+  await form(page).getByLabel("Name").fill("E2E Visitor");
+  await form(page).getByLabel("Email").fill("visitor@example.com");
+  await form(page).getByLabel("Message").fill(message);
   await page.getByRole("button", { name: "Send message" }).click();
+}
 
-  await expect(page.getByRole("status")).toContainText("Your message looks good");
+test("a valid message is sent and the form clears", async ({ browser }) => {
+  const page = await newVisitorPage(browser);
+  await sendMessage(page, "Hello! I'd like to talk about a Flutter project.");
+
+  await expect(page.getByRole("status")).toContainText("Your message was sent");
   await expect(form(page).getByLabel("Name")).toHaveValue("");
+});
+
+test.describe("admin inbox", () => {
+  test.use({ storageState: ADMIN_STORAGE_STATE });
+
+  test("a sent message appears in the admin inbox", async ({ browser, page }) => {
+    const text = `Inbox check ${Date.now()}: please call me about an app.`;
+    const visitor = await newVisitorPage(browser);
+    await sendMessage(visitor, text);
+    await expect(visitor.getByRole("status")).toContainText("Your message was sent");
+
+    await page.goto("/admin/inbox");
+    await expect(page.getByText(text).first()).toBeVisible();
+  });
 });
 
 test("social profiles are shown as tiles", async ({ page }) => {

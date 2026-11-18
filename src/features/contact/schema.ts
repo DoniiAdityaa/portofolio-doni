@@ -7,8 +7,11 @@ export const CONTACT_LIMITS = {
   messageMax: 2000,
 } as const;
 
+/** Messages one visitor may send per hour (Case 02 §15). */
+export const CONTACT_RATE_LIMIT_PER_HOUR = 3;
+
 /**
- * Contact form schema (Case 02 §10.3), shared by the form and, from M6, the server action.
+ * Contact form schema (Case 02 §10.3), shared by the form and the server action.
  * Error messages are translation keys under `contact.errors`.
  */
 export const contactMessageSchema = z.object({

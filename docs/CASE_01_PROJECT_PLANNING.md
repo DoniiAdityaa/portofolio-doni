@@ -307,6 +307,7 @@ No open product decisions remain.
 | CR-06 | 2026-11-18 | Projects have a **type** (platform: Web, Mobile) and a separate **category** (context: Personal project, Internship, Freelance, Competition), both managed in admin; the list filters by both in two labeled pill rows plus search. Every page ends with a "You've reached the end" marker and a back-to-top button. | Owner, in chat |
 | CR-07 | 2026-11-18 | Dashboard adds stat cards: followers, following, repositories, contributions, this week, best day, and daily average (counting up on view); the GitHub section uses the GitHub icon; page and section descriptions are longer. | Owner, in chat |
 | CR-08 | 2026-11-18 | Light mode moves into v1 (toggle next to the language switch, dark stays default). Sidebar redesign: flag-based language pill and theme pill. The role under the name rotates through admin-managed phrases. A sky progress bar shows at the top during page navigation. Contact page redesigned (code-editor form, social tiles). | Owner, in chat |
+| CR-09 | 2026-11-18 | If the database cannot be reached, public pages keep showing the last cached content, or a tidy "temporarily unavailable" message instead of an error page. Planned for M7. | Owner, in chat |
 | CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope

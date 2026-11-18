@@ -3,7 +3,7 @@
 
 begin;
 create extension if not exists pgtap with schema extensions;
-select plan(20);
+select plan(21);
 
 -- ---------------------------------------------------------------------------
 -- Fixtures (as postgres, bypassing RLS)
@@ -55,15 +55,23 @@ select throws_ok(
   'select * from public.contact_messages',
   '42501', null, 'anon cannot read the inbox'
 );
-select lives_ok(
-  $$insert into public.contact_messages (name, email, message)
-    values ('Visitor', 'visitor@test.local', 'Hello from a visitor!')$$,
-  'anon can send a message'
+select is(
+  public.submit_contact_message('Visitor', 'visitor@test.local', 'Hello from a visitor!', 'v1'),
+  'sent',
+  'anon can send a message through the function'
 );
 select throws_ok(
-  $$insert into public.contact_messages (name, email, message, is_read)
-    values ('Visitor', 'visitor@test.local', 'Trying to mark as read.', true)$$,
-  '42501', null, 'anon cannot send a message already marked as read'
+  $$insert into public.contact_messages (name, email, message)
+    values ('Visitor', 'visitor@test.local', 'Skipping the rate limit.')$$,
+  '42501', null, 'anon cannot insert messages directly'
+);
+select public.submit_contact_message('Visitor', 'visitor@test.local', 'Message number 1', 'v2');
+select public.submit_contact_message('Visitor', 'visitor@test.local', 'Message number 2', 'v2');
+select public.submit_contact_message('Visitor', 'visitor@test.local', 'Message number 3', 'v2');
+select is(
+  public.submit_contact_message('Visitor', 'visitor@test.local', 'Message number 4', 'v2'),
+  'rate_limited',
+  'the 4th message within an hour is rate limited'
 );
 select throws_ok(
   $$insert into public.skills (name, icon_slug, category_id)

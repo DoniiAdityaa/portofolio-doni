@@ -170,6 +170,7 @@ export type Database = {
           is_read: boolean;
           message: string;
           name: string;
+          visitor_hash: string | null;
         };
         ComputedFields: never;
         Insert: {
@@ -180,6 +181,7 @@ export type Database = {
           is_read?: boolean;
           message: string;
           name: string;
+          visitor_hash?: string | null;
         };
         Update: {
           archived_at?: string | null;
@@ -189,6 +191,7 @@ export type Database = {
           is_read?: boolean;
           message?: string;
           name?: string;
+          visitor_hash?: string | null;
         };
         Relationships: [];
       };
@@ -724,6 +727,14 @@ export type Database = {
       [_ in never]: never;
     };
     Functions: {
+      daily_visitor_stats: {
+        Args: { days?: number };
+        Returns: {
+          day: string;
+          views: number;
+          visitors: number;
+        }[];
+      };
       is_admin: { Args: Record<PropertyKey, never>; Returns: boolean };
       is_localized_text: { Args: { value: Json }; Returns: boolean };
       record_page_view: {
@@ -734,6 +745,16 @@ export type Database = {
           view_visitor_hash: string;
         };
         Returns: undefined;
+      };
+      submit_contact_message: {
+        Args: {
+          max_per_hour?: number;
+          message_body: string;
+          sender_email: string;
+          sender_hash: string;
+          sender_name: string;
+        };
+        Returns: string;
       };
     };
     Enums: {
