@@ -1,0 +1,64 @@
+{
+  "metadata": {
+    "title": "Portfolio",
+    "description": "Personal developer portfolio."
+  },
+  "profile": {
+    "role": "Mobile Developer (Flutter)"
+  },
+  "nav": {
+    "label": "Main navigation",
+    "home": "Home",
+    "about": "About",
+    "achievements": "Achievement",
+    "projects": "Projects",
+    "dashboard": "Dashboard",
+    "contact": "Contact"
+  },
+  "shell": {
+    "downloadCv": "Download CV",
+    "cvComingSoon": "CV download will be available soon",
+    "language": "Language",
+    "openMenu": "Open menu",
+    "menuTitle": "Menu",
+    "skipToContent": "Skip to content",
+    "socialLinks": "Social links"
+  },
+  "pages": {
+    "comingSoonTitle": "Coming soon",
+    "comingSoonDescription": "This page is being built.",
+    "about": {
+      "description": "Who I am, where I've worked, and where I studied."
+    },
+    "achievements": {
+      "description": "Certificates and awards I've earned."
+    },
+    "projects": {
+      "description": "Things I've built."
+    },
+    "dashboard": {
+      "description": "My GitHub activity."
+    },
+    "contact": {
+      "description": "Get in touch."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has moved.",
+    "backHome": "Back to home"
+  },
+  "error": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred. Please try again.",
+    "retry": "Try again"
+  },
+  "common": {
+    "close": "Close",
+    "present": "Present"
+  },
+  "home": {
+    "greeting": "Hi, I'm {name} 👋",
+    "intro": "I build mobile apps with Flutter that feel good to use. My full introduction, skills, and featured projects arrive in the next milestone."
+  }
+}

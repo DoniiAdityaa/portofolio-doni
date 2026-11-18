@@ -1,3 +1,8 @@
+# Packages whose install scripts are not needed by this project.
+# sharp: image optimization runs on Vercel; @swc/core and @parcel/watcher
+# are only used by next-intl's optional message extractor.
 allowBuilds:
   sharp: false
   unrs-resolver: false
+  "@swc/core": false
+  "@parcel/watcher": false
