@@ -13,6 +13,11 @@ export type Experience = ContentRow & {
   startDate: string;
   /** ISO date, or `null` while the job is ongoing ("Present"). */
   endDate: string | null;
-  description: LocalizedText;
+  /** One item per line (CR-04). */
+  responsibilities: LocalizedText;
+  /** What the owner learned; one item per line (CR-04). */
+  learnings: LocalizedText;
+  /** Results and impact; one item per line (CR-04). */
+  impact: LocalizedText;
   skillIds: string[];
 };

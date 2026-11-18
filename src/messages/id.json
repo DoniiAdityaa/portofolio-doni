@@ -104,6 +104,9 @@
     "duration": {
       "years": "{count} thn",
       "months": "{count} bln"
-    }
+    },
+    "responsibilities": "Tanggung jawab",
+    "learned": "Yang saya pelajari",
+    "impact": "Dampak"
   }
 }

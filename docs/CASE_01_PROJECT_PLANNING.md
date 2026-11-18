@@ -125,7 +125,7 @@ The admin area is separate and is not linked from the public navigation.
 2. **Career:** vertical timeline, newest first. Internships are included and labeled **"Internship"**.
 3. **Education:** vertical timeline, newest first.
 
-**Fields per Career entry:** company name, company **logo (uploaded in admin)**, position, type (**Full-time / Internship / Freelance / Contract**), start–end date or "Present", description, tech used (optional).
+**Fields per Career entry:** company name, company **logo (uploaded in admin)**, position, type (**Full-time / Internship / Freelance / Contract**), start–end date or "Present", **Responsibilities**, **What I learned**, and **Impact** (CR-04; each a list, one item per line), tech used (optional). Details open with "Show details".
 
 **Current content (Confirmed):** only Internship entries are published for now. An earlier company job is kept as **Draft** (hidden from visitors) and can be published later from admin. Full-time and other types are available in admin for future use.
 
@@ -301,6 +301,7 @@ No open product decisions remain.
 |---|---|---|---|
 | CR-01 | 2026-11-18 | Desktop layout becomes a centered container with a sticky sidebar (UI/UX reference style). Animation scope widened from "subtle" to rich animation (§3.5). Skill chips tinted with brand colors. Palette unchanged. | Owner, in chat |
 | CR-02 | 2026-11-18 | Background is one solid color (no gradient glow). Hero typing effect loops. No emoji in the greeting. | Owner, in chat |
+| CR-04 | 2026-11-18 | Career entries split their description into Responsibilities, What I learned, and Impact, each with an icon; career cards get creative hover animations. | Owner, in chat |
 | CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope

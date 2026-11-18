@@ -104,6 +104,9 @@
     "duration": {
       "years": "{count, plural, one {# yr} other {# yrs}}",
       "months": "{count, plural, one {# mo} other {# mos}}"
-    }
+    },
+    "responsibilities": "Responsibilities",
+    "learned": "What I learned",
+    "impact": "Impact"
   }
 }

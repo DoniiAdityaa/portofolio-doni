@@ -10,8 +10,10 @@ import { SkillIcon } from "@/components/ui/skill-icon";
 import { Timeline, TimelineItem } from "@/components/ui/timeline";
 import { formatPeriod } from "@/lib/i18n/dates";
 import { localize } from "@/lib/i18n/localize";
+import { splitLines } from "@/lib/utils/text";
 
 import { getPublishedExperiences } from "../queries";
+import { CareerDetails } from "./career-details";
 import { DurationLabel } from "./duration-label";
 
 /** Career timeline (Case 01 §5.2): newest first, internships labeled. Hidden when empty. */
@@ -24,6 +26,13 @@ export async function CareerSection() {
   ]);
 
   if (experiences.length === 0) return null;
+
+  const detailLabels = {
+    responsibilities: t("responsibilities"),
+    learned: t("learned"),
+    impact: t("impact"),
+    techUsed: t("techUsed"),
+  };
 
   return (
     <section aria-labelledby="career-title" className="space-y-6">
@@ -38,10 +47,12 @@ export async function CareerSection() {
       <RevealGroup>
         <Timeline>
           {experiences.map((item) => {
-            const highlights = localize(item.description, locale)
-              .split("\n")
-              .map((line) => line.trim())
-              .filter(Boolean);
+            const responsibilities = splitLines(localize(item.responsibilities, locale));
+            const learnings = splitLines(localize(item.learnings, locale));
+            const impact = splitLines(localize(item.impact, locale));
+            const hasDetails =
+              responsibilities.length + learnings.length + impact.length > 0 ||
+              item.techStack.length > 0;
 
             return (
               <RevealItem key={item.id}>
@@ -60,21 +71,15 @@ export async function CareerSection() {
                     </>
                   }
                 >
-                  {highlights.length > 0 || item.techStack.length > 0 ? (
+                  {hasDetails ? (
                     <Expandable showLabel={t("showDetails")} hideLabel={t("hideDetails")}>
-                      <div className="space-y-4">
-                        {highlights.length > 0 ? (
-                          <ul className="list-disc space-y-1.5 pl-4 marker:text-primary">
-                            {highlights.map((line) => (
-                              <li key={line}>{line}</li>
-                            ))}
-                          </ul>
-                        ) : null}
-                        {item.techStack.length > 0 ? (
-                          <div className="space-y-2">
-                            <p className="text-xs font-medium tracking-wide text-foreground uppercase">
-                              {t("techUsed")}
-                            </p>
+                      <CareerDetails
+                        labels={detailLabels}
+                        responsibilities={responsibilities}
+                        learnings={learnings}
+                        impact={impact}
+                        techStack={
+                          item.techStack.length > 0 ? (
                             <ul className="flex flex-wrap gap-2">
                               {item.techStack.map((skill) => (
                                 <li key={skill.id}>
@@ -82,9 +87,9 @@ export async function CareerSection() {
                                 </li>
                               ))}
                             </ul>
-                          </div>
-                        ) : null}
-                      </div>
+                          ) : undefined
+                        }
+                      />
                     </Expandable>
                   ) : null}
                 </TimelineItem>

@@ -16,6 +16,9 @@ type ExpandableProps = {
 /** "Show details" toggle that smoothly reveals extra content (UI/UX reference). */
 export function Expandable({ showLabel, hideLabel, children }: ExpandableProps) {
   const [open, setOpen] = useState(false);
+  // True while the height animates. Content is clipped only then, so once open,
+  // hover effects (e.g. a scaled skill chip) are not cut off at the edges.
+  const [animating, setAnimating] = useState(false);
   const contentId = useId();
 
   return (
@@ -42,7 +45,9 @@ export function Expandable({ showLabel, hideLabel, children }: ExpandableProps) 
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="overflow-hidden"
+            onAnimationStart={() => setAnimating(true)}
+            onAnimationComplete={() => setAnimating(false)}
+            className={animating ? "overflow-hidden" : "overflow-visible"}
           >
             <div className="pt-3">{children}</div>
           </motion.div>

@@ -173,7 +173,7 @@ Translatable fields use type `jsonb` holding `{ "en": ..., "id": ... }` (see §5
 | `site_settings` | name, headline*, short_intro*, full_intro*, photo_path, github_username, social_links (jsonb), seo_title*, seo_description*, cv_en_path, cv_id_path | Single row |
 | `skill_categories` | name*, sort_order | e.g. Mobile, Web, Backend, Tools |
 | `skills` | name, icon_slug, category_id → skill_categories, sort_order, status | Icon from `simple-icons` |
-| `experiences` | company, logo_path, position*, type (`full_time`, `internship`, `freelance`, `contract`), start_date, end_date (null = Present), description*, status | Career timeline |
+| `experiences` | company, logo_path, position*, type (`full_time`, `internship`, `freelance`, `contract`), start_date, end_date (null = Present), responsibilities*, learnings*, impact* (CR-04, one item per line), status | Career timeline |
 | `experience_skills` | experience_id, skill_id | Optional "tech used" |
 | `educations` | institution, logo_path, degree*, start_date, end_date, notes*, status | |
 | `achievement_categories` | name*, sort_order | Defaults: Mobile, Web, Backend, Cloud, Soft Skill |
