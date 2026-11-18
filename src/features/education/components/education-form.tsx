@@ -53,6 +53,7 @@ export function EducationForm({ defaultValues }: { defaultValues: EducationFormV
           render={({ field }) => (
             <ImageUpload
               label="Logo"
+              aspect={1}
               folder="education/logos"
               value={field.value}
               onChange={field.onChange}

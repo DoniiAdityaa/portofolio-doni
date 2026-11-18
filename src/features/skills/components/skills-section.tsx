@@ -1,4 +1,4 @@
-import { LayersIcon } from "lucide-react";
+import { Code2Icon } from "lucide-react";
 import { getLocale, getTranslations } from "next-intl/server";
 
 import { SectionHeader } from "@/components/layout/section-header";
@@ -36,7 +36,7 @@ export async function SkillsSection() {
       <Reveal>
         <SectionHeader
           id="skills-title"
-          icon={LayersIcon}
+          icon={Code2Icon}
           title={t("title")}
           description={t("description")}
         />

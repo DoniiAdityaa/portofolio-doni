@@ -121,6 +121,7 @@ export function ProjectForm({
           render={({ field }) => (
             <ImageUpload
               label="Thumbnail"
+              aspect={16 / 9}
               folder={projectFolder}
               value={field.value}
               onChange={field.onChange}

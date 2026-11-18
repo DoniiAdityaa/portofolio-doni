@@ -27,7 +27,9 @@ jobs:
       - run: pnpm test
       - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          # Pinned: resolving "latest" calls the GitHub API and can hit its rate limit.
+          # Keep in step with the local CLI (`supabase --version`).
+          version: 3.2.0
       # From M5 the public pages read Supabase, also while prerendering at build time.
       - run: supabase start -x studio,edge-runtime,imgproxy,vector,logflare,supavisor,mailpit,postgres-meta
       - name: Point the app at local Supabase
@@ -47,7 +49,9 @@ jobs:
       - uses: actions/checkout@v4
       - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          # Pinned: resolving "latest" calls the GitHub API and can hit its rate limit.
+          # Keep in step with the local CLI (`supabase --version`).
+          version: 3.2.0
       # Applies every migration and the seed from scratch, so a broken migration fails here.
       - run: supabase start -x studio,edge-runtime,imgproxy,vector,logflare,supavisor,mailpit,postgres-meta
       - run: supabase test db
@@ -68,7 +72,9 @@ jobs:
       - run: pnpm install --frozen-lockfile
       - uses: supabase/setup-cli@v1
         with:
-          version: latest
+          # Pinned: resolving "latest" calls the GitHub API and can hit its rate limit.
+          # Keep in step with the local CLI (`supabase --version`).
+          version: 3.2.0
       # From M5 the public pages read Supabase, also while prerendering at build time.
       - run: supabase start -x studio,edge-runtime,imgproxy,vector,logflare,supavisor,mailpit,postgres-meta
       - name: Point the app at local Supabase

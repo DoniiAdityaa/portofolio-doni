@@ -67,6 +67,8 @@ export function SettingsForm({ defaultValues }: { defaultValues: SiteSettingsFor
           render={({ field }) => (
             <ImageUpload
               label="Profile photo"
+              aspect={1}
+              round
               folder="profile"
               value={field.value}
               onChange={field.onChange}

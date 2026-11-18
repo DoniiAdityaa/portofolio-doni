@@ -308,6 +308,7 @@ No open product decisions remain.
 | CR-07 | 2026-11-18 | Dashboard adds stat cards: followers, following, repositories, contributions, this week, best day, and daily average (counting up on view); the GitHub section uses the GitHub icon; page and section descriptions are longer. | Owner, in chat |
 | CR-08 | 2026-11-18 | Light mode moves into v1 (toggle next to the language switch, dark stays default). Sidebar redesign: flag-based language pill and theme pill. The role under the name rotates through admin-managed phrases. A sky progress bar shows at the top during page navigation. Contact page redesigned (code-editor form, social tiles). | Owner, in chat |
 | CR-09 | 2026-11-18 | If the database cannot be reached, public pages keep showing the last cached content, or a tidy "temporarily unavailable" message instead of an error page. Planned for M7. | Owner, in chat |
+| CR-10 | 2026-11-18 | Admin image uploads get a crop step before upload (react-easy-crop): profile photo round 1:1, logos 1:1, certificate images 4:3, project thumbnails 16:9. Output is resized WebP. Home Skills heading uses the `</>` icon. | Owner, in chat |
 | CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope
