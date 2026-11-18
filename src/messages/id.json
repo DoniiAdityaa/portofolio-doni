@@ -168,5 +168,31 @@
     "typeLabel": "Jenis",
     "search": "Cari sertifikat",
     "searchPlaceholder": "Cari judul atau penerbit…"
+  },
+  "dashboard": {
+    "github": {
+      "title": "Aktivitas GitHub",
+      "description": "Kontribusi selama setahun terakhir."
+    },
+    "pinned": {
+      "title": "Repositori pilihan",
+      "description": "Repositori yang saya sematkan di GitHub."
+    },
+    "languages": {
+      "title": "Bahasa teratas",
+      "description": "Porsi kode di repositori publik saya."
+    },
+    "lastUpdated": "Terakhir diperbarui {date}",
+    "viewProfile": "Lihat profil GitHub",
+    "graphLabel": "Kalender kontribusi setahun terakhir",
+    "cellTooltip": "{count, plural, =0 {Tidak ada kontribusi} other {# kontribusi}} pada {date}",
+    "less": "Sedikit",
+    "more": "Banyak",
+    "stars": "Bintang",
+    "forks": "Fork",
+    "languagesBarLabel": "Porsi bahasa",
+    "unavailableTitle": "Data GitHub belum tersedia",
+    "unavailableDescription": "Data akan muncul setelah pembaruan harian berikutnya.",
+    "totalLabel": "kontribusi dalam setahun terakhir"
   }
 }

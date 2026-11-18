@@ -1,6 +1,13 @@
 import { describe, expect, it } from "vitest";
 
-import { formatDate, formatPeriod, monthsBetween, splitMonths } from "./dates";
+import {
+  formatDate,
+  formatDay,
+  formatMonthName,
+  formatPeriod,
+  monthsBetween,
+  splitMonths,
+} from "./dates";
 
 describe("formatDate", () => {
   it("formats month and year per locale", () => {
@@ -32,5 +39,13 @@ describe("monthsBetween and splitMonths", () => {
   it("splits months into years and months", () => {
     expect(splitMonths(14)).toEqual({ years: 1, months: 2 });
     expect(splitMonths(5)).toEqual({ years: 0, months: 5 });
+  });
+});
+
+describe("formatDay and formatMonthName", () => {
+  it("formats a full day and a month name", () => {
+    expect(formatDay("2026-11-18", "en")).toBe("Nov 18, 2026");
+    expect(formatDay("2026-11-18", "id")).toBe("18 Nov 2026");
+    expect(formatMonthName("2026-01-05", "en")).toBe("Jan");
   });
 });

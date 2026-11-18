@@ -122,3 +122,15 @@
     scroll-behavior: auto !important;
   }
 }
+
+/* Contribution graph cells pop in column by column (delay set per week inline). */
+@keyframes cell-in {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}

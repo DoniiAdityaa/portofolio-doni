@@ -17,6 +17,26 @@ export function formatDate(iso: string, locale: Locale, granularity: "month" | "
   return new Intl.DateTimeFormat(locale, options).format(date);
 }
 
+/** Formats a full date, e.g. "18 Nov 2026" (EN) / "18 Nov 2026" (ID). */
+export function formatDay(iso: string, locale: Locale): string {
+  const [year = "0", month = "1", day = "1"] = iso.split("-");
+  const date = new Date(Date.UTC(Number(year), Number(month) - 1, Number(day)));
+  return new Intl.DateTimeFormat(locale, {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  }).format(date);
+}
+
+/** Short month name, e.g. "Jan" (EN) / "Jan" (ID). */
+export function formatMonthName(iso: string, locale: Locale): string {
+  const [year = "0", month = "1"] = iso.split("-");
+  return new Intl.DateTimeFormat(locale, { month: "short", timeZone: "UTC" }).format(
+    new Date(Date.UTC(Number(year), Number(month) - 1, 1)),
+  );
+}
+
 /** "Jul 2025 – Dec 2025", or "Jul 2026 – Present" when `end` is null. */
 export function formatPeriod(
   start: string,
