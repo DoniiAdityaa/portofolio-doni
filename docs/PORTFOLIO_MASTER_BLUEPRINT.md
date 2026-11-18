@@ -17,7 +17,7 @@
 
 - **Goal:** personal branding. **Headline:** Mobile Developer (Flutter). **Audience:** fellow developers. **Main action:** Download CV.
 - **Languages:** English (default) and Indonesian, for UI and content, with fallback to the other language when a field is empty.
-- **Look:** Playful Professional, dark only in v1. Palette Midnight Navy `#0B1120`, Charcoal `#111827`, Slate `#1F2937`, Sky Blue `#38BDF8`, Teal `#2DD4BF`, Amber `#F59E0B`. Fonts Space Grotesk / Inter / JetBrains Mono. Centered container with a sticky sidebar on desktop and tablet; top bar + drawer on phones. Rich animation (CR-01) that respects reduced motion.
+- **Look:** Playful Professional, dark by default with a light mode toggle (CR-08). Palette Midnight Navy `#0B1120`, Charcoal `#111827`, Slate `#1F2937`, Sky Blue `#38BDF8`, Teal `#2DD4BF`, Amber `#F59E0B`. Fonts Space Grotesk / Inter / JetBrains Mono. Centered container with a sticky sidebar on desktop and tablet; top bar + drawer on phones. Rich animation (CR-01) that respects reduced motion.
 - **UI/UX reference:** satriabahari.my.id, for look and feel only. Features follow Case 01.
 - **Pages:**
 

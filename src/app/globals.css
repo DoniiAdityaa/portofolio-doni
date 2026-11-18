@@ -48,6 +48,31 @@
   color-scheme: dark;
 }
 
+/*
+ * Light theme (CR-08). Accents are darker shades so text on white meets WCAG AA
+ * (all pairs checked at 4.7:1 or higher). Dark stays the default.
+ */
+:root[data-theme="light"] {
+  --sky: #0369a1;
+  --teal: #0f766e;
+  --amber: #b45309;
+
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --popover: #ffffff;
+  --primary-foreground: #ffffff;
+  --secondary: #f1f5f9;
+  --muted: #f1f5f9;
+  --muted-foreground: #475569;
+  --accent: #f1f5f9;
+  --destructive: #dc2626;
+  --border: #e2e8f0;
+  --input: #cbd5e1;
+
+  color-scheme: light;
+}
+
 @theme inline {
   --color-midnight: var(--midnight);
   --color-charcoal: var(--charcoal);

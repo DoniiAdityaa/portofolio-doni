@@ -61,7 +61,7 @@ export function CareerDetails({
 
       {techStack ? (
         <div className="space-y-2 border-t pt-5">
-          <p className="text-xs font-semibold tracking-wider text-amber uppercase">
+          <p className="text-xs font-semibold tracking-wider text-foreground uppercase">
             {labels.techUsed}
           </p>
           {techStack}
@@ -83,7 +83,7 @@ function DetailBlock({ icon: Icon, iconClassName, title, items }: DetailBlockPro
 
   return (
     <div className="group/block space-y-3">
-      <h4 className="flex items-center gap-2 text-xs font-semibold tracking-wider text-amber uppercase">
+      <h4 className="flex items-center gap-2 text-xs font-semibold tracking-wider text-foreground uppercase">
         <Icon
           aria-hidden="true"
           className={cn("size-4 transition-all duration-300 ease-out", iconClassName)}
@@ -95,7 +95,7 @@ function DetailBlock({ icon: Icon, iconClassName, title, items }: DetailBlockPro
           <motion.li key={item} variants={itemVariants} className="group/line flex gap-2.5">
             <CheckIcon
               aria-hidden="true"
-              className="mt-0.5 size-4 shrink-0 text-teal transition-transform duration-200 group-hover/line:scale-125"
+              className="mt-0.5 size-4 shrink-0 text-muted-foreground transition-transform duration-200 group-hover/line:scale-125"
             />
             <span className="transition-colors group-hover/line:text-foreground">{item}</span>
           </motion.li>

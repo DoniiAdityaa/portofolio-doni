@@ -23,5 +23,7 @@ export default defineConfig({
     url: `http://localhost:${PORT}`,
     reuseExistingServer: !isCI,
     timeout: 180_000,
+    // Tests use deterministic dummy GitHub data, never the live API from .env.local.
+    env: { GITHUB_TOKEN: "" },
   },
 });

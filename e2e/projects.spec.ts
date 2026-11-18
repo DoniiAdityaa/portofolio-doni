@@ -41,6 +41,14 @@ test("filter rows are translated", async ({ page }) => {
   ).toBeVisible();
 });
 
+test("short pages show the end marker without a back-to-top button", async ({ page, isMobile }) => {
+  test.skip(isMobile, "The phone viewport makes even short pages scrollable.");
+  await page.goto("/en/unknown-page");
+
+  await expect(page.getByText("You've reached the end")).toBeVisible();
+  await expect(page.getByRole("button", { name: "Back to top" })).toHaveCount(0);
+});
+
 test("every page ends with an end-of-page marker", async ({ page }) => {
   await page.goto("/en/projects");
 

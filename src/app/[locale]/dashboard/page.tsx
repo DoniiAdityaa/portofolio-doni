@@ -9,8 +9,10 @@ import { BrandIcon, findBrandIcon } from "@/components/ui/brand-icon";
 import { EmptyState } from "@/components/ui/empty-state";
 import { Separator } from "@/components/ui/separator";
 import { ContributionGraph } from "@/features/github/components/contribution-graph";
+import { GithubStats } from "@/features/github/components/github-stats";
 import { PinnedRepositories } from "@/features/github/components/pinned-repositories";
 import { TopLanguages } from "@/features/github/components/top-languages";
+import { computeContributionStats } from "@/features/github/contribution-stats";
 import { getGithubSnapshot } from "@/features/github/queries";
 import { formatDay } from "@/lib/i18n/dates";
 
@@ -46,7 +48,13 @@ export default async function DashboardPage() {
             <Reveal>
               <SectionHeader
                 id="github-title"
-                icon={GitGraphIcon}
+                icon={
+                  githubIcon ? (
+                    <BrandIcon icon={githubIcon} className="size-5 text-primary" />
+                  ) : (
+                    GitGraphIcon
+                  )
+                }
                 title={t("github.title")}
                 description={t("github.description")}
                 action={
@@ -63,16 +71,10 @@ export default async function DashboardPage() {
                 }
               />
             </Reveal>
-            <Reveal delay={0.05}>
-              <p className="text-sm">
-                <span className="font-heading text-2xl font-semibold text-primary">
-                  {snapshot.totalContributions.toLocaleString(locale)}
-                </span>{" "}
-                <span className="text-muted-foreground">
-                  {t("totalLabel", { count: snapshot.totalContributions })}
-                </span>
-              </p>
-            </Reveal>
+            <GithubStats
+              profile={snapshot.profile}
+              stats={computeContributionStats(snapshot.contributions)}
+            />
             <div className="rounded-xl border bg-card p-4">
               <ContributionGraph days={snapshot.contributions} />
             </div>

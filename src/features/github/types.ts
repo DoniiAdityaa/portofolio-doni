@@ -30,6 +30,8 @@ export type GithubSnapshot = {
   /** ISO timestamp of the last successful fetch. */
   fetchedAt: string;
   totalContributions: number;
+  /** Public profile counts (CR-07). */
+  profile: { followers: number; following: number; publicRepos: number };
   /** Oldest first; always whole weeks, starting on a Sunday. */
   contributions: ContributionDay[];
   pinnedRepositories: PinnedRepository[];

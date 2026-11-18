@@ -6,7 +6,7 @@ test.describe("language toggle", () => {
     await expect(page.getByRole("heading", { level: 1, name: "Projects" })).toBeVisible();
 
     if (isMobile) await page.getByRole("button", { name: "Open menu" }).click();
-    await page.getByRole("button", { name: "id", exact: true }).click();
+    await page.getByRole("button", { name: "Bahasa Indonesia" }).click();
 
     await expect(page).toHaveURL(/\/id\/projects$/);
     await expect(page.locator("html")).toHaveAttribute("lang", "id");
@@ -45,4 +45,17 @@ test("unknown pages show a translated 404", async ({ page }) => {
 
   expect(response?.status()).toBe(404);
   await expect(page.getByText("Halaman tidak ditemukan")).toBeVisible();
+});
+
+test("the theme toggle switches to light mode and remembers it", async ({ page, isMobile }) => {
+  await page.goto("/en");
+  const html = page.locator("html");
+  await expect(html).toHaveAttribute("data-theme", "dark");
+
+  if (isMobile) await page.getByRole("button", { name: "Open menu" }).click();
+  await page.getByRole("button", { name: "Light mode" }).click();
+  await expect(html).toHaveAttribute("data-theme", "light");
+
+  await page.reload();
+  await expect(html).toHaveAttribute("data-theme", "light");
 });

@@ -35,6 +35,7 @@ export const dummyGithubSnapshot: GithubSnapshot = {
   username: "DoniiAdityaa",
   fetchedAt: "2026-11-18T03:00:00Z",
   totalContributions: contributions.reduce((sum, day) => sum + day.count, 0),
+  profile: { followers: 48, following: 31, publicRepos: 23 },
   contributions,
   pinnedRepositories: [
     {

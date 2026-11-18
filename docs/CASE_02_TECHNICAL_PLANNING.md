@@ -36,6 +36,7 @@
 | Skill/brand icons | `simple-icons` | Admin stores an icon slug such as `flutter`; the site renders the official icon |
 | UI icons | `lucide-react` | Menu, arrows, close, and similar icons |
 | Manual ordering in admin | `dnd-kit` | Drag-and-drop reordering |
+| Theme (CR-08) | Own `data-theme` switch on `<html>` | CSS variables per theme; a tiny inline script applies the saved choice before paint (no flash); no extra library |
 | Animation (CR-01) | `motion` (Framer Motion) | Page, scroll, hover, and layout animations; respects reduced motion through `MotionConfig` |
 
 Nothing else is added without a clear need.

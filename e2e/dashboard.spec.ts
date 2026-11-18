@@ -7,7 +7,9 @@ test("shows GitHub activity, pinned repositories, and top languages", async ({ p
   for (const heading of ["GitHub activity", "Pinned repositories", "Top languages"]) {
     await expect(page.getByRole("heading", { level: 2, name: heading })).toBeVisible();
   }
-  await expect(page.getByText("contributions in the last year")).toBeVisible();
+  for (const stat of ["Followers", "Following", "Repositories", "This week", "Best day"]) {
+    await expect(page.getByText(stat, { exact: true })).toBeVisible();
+  }
   await expect(page.getByText(/Last updated/)).toBeVisible();
 });
 
@@ -31,5 +33,6 @@ test("Dashboard is translated into Indonesian", async ({ page }) => {
   await page.goto("/id/dashboard");
 
   await expect(page.getByRole("heading", { level: 2, name: "Aktivitas GitHub" })).toBeVisible();
-  await expect(page.getByText("kontribusi dalam setahun terakhir")).toBeVisible();
+  await expect(page.getByText("Pengikut", { exact: true })).toBeVisible();
+  await expect(page.getByText("Rata-rata harian", { exact: true })).toBeVisible();
 });

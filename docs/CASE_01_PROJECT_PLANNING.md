@@ -45,7 +45,7 @@
 
 ### 3.1 Direction (Confirmed, carried from Project Guide)
 - **Playful Professional**: modern, clean, understated; playful through small details, not loud colors.
-- **Dark mode only in v1.** Light mode is deferred (see §11).
+- **Dark by default, with a light mode (CR-08).** A sun/moon toggle in the sidebar switches themes and the visitor's choice is remembered. Light-mode accents use darker shades for WCAG AA.
 - Avoid lavender and pastel-heavy styling.
 
 ### 3.2 Color palette (Confirmed)
@@ -199,6 +199,7 @@ The admin area is separate and is not linked from the public navigation.
 ### 5.5 Dashboard (GitHub)
 
 **Content (Confirmed):**
+- **Stat cards (CR-07):** followers, following, repositories, contributions, this week, best day, daily average.
 - **Contribution graph:** contribution calendar for the past year.
 - **Pinned repositories:** name, description, main language, stars, link.
 - **Top languages:** share of the most-used languages.
@@ -304,12 +305,13 @@ No open product decisions remain.
 | CR-04 | 2026-11-18 | Career entries split their description into Responsibilities, What I learned, and Impact, each with an icon; career cards get creative hover animations. | Owner, in chat |
 | CR-05 | 2026-11-18 | Achievement gets a search box (title and issuer). The certificate viewer becomes a wide split view: large image left, details panel right (stacked on phones), with entry animations. | Owner, in chat |
 | CR-06 | 2026-11-18 | Projects have a **type** (platform: Web, Mobile) and a separate **category** (context: Personal project, Internship, Freelance, Competition), both managed in admin; the list filters by both in two labeled pill rows plus search. Every page ends with a "You've reached the end" marker and a back-to-top button. | Owner, in chat |
+| CR-07 | 2026-11-18 | Dashboard adds stat cards: followers, following, repositories, contributions, this week, best day, and daily average (counting up on view); the GitHub section uses the GitHub icon; page and section descriptions are longer. | Owner, in chat |
+| CR-08 | 2026-11-18 | Light mode moves into v1 (toggle next to the language switch, dark stays default). Sidebar redesign: flag-based language pill and theme pill. The role under the name rotates through admin-managed phrases. A sky progress bar shows at the top during page navigation. Contact page redesigned (code-editor form, social tiles). | Owner, in chat |
 | CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope
 
 **Deferred to a later version:**
-- Light mode
 - Comments / likes on projects
 
 **Not planned (removed from the plan):**

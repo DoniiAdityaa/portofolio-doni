@@ -21,25 +21,28 @@
     "skipToContent": "Langsung ke konten",
     "socialLinks": "Tautan sosial",
     "endOfPage": "Sudah sampai akhir",
-    "backToTop": "Kembali ke atas"
+    "backToTop": "Kembali ke atas",
+    "theme": "Tema",
+    "lightMode": "Mode terang",
+    "darkMode": "Mode gelap"
   },
   "pages": {
     "comingSoonTitle": "Segera hadir",
     "comingSoonDescription": "Halaman ini sedang dibuat.",
     "about": {
-      "description": "Siapa saya, tempat saya bekerja, dan tempat saya belajar."
+      "description": "Kenali saya lebih dekat: cerita saya, tempat saya bekerja, dan sekolah yang membentuk cara saya membangun software."
     },
     "achievements": {
-      "description": "Sertifikat dan penghargaan yang saya raih."
+      "description": "Sertifikat, kursus, dan penghargaan yang menandai apa yang sudah saya pelajari dan raih selama ini."
     },
     "projects": {
-      "description": "Hal-hal yang saya bangun."
+      "description": "Aplikasi dan website yang saya rancang dan bangun, dari eksperimen pribadi sampai pekerjaan magang dan freelance."
     },
     "dashboard": {
-      "description": "Aktivitas GitHub saya."
+      "description": "Sekilas tentang GitHub saya: statistik profil, kontribusi setahun, repositori pilihan, dan bahasa yang paling sering saya pakai."
     },
     "contact": {
-      "description": "Hubungi saya."
+      "description": "Punya proyek, peluang kerja sama, atau sekadar ingin menyapa? Kirim pesan dan saya akan membalasnya."
     }
   },
   "notFound": {
@@ -172,15 +175,15 @@
   "dashboard": {
     "github": {
       "title": "Aktivitas GitHub",
-      "description": "Kontribusi selama setahun terakhir."
+      "description": "Kontribusi open source, repositori, dan aktivitas coding selama setahun terakhir."
     },
     "pinned": {
       "title": "Repositori pilihan",
-      "description": "Repositori yang saya sematkan di GitHub."
+      "description": "Repositori yang saya sematkan di GitHub: proyek yang paling saya banggakan saat ini."
     },
     "languages": {
       "title": "Bahasa teratas",
-      "description": "Porsi kode di repositori publik saya."
+      "description": "Pembagian kode saya berdasarkan bahasa di repositori publik."
     },
     "lastUpdated": "Terakhir diperbarui {date}",
     "viewProfile": "Lihat profil GitHub",
@@ -193,6 +196,48 @@
     "languagesBarLabel": "Porsi bahasa",
     "unavailableTitle": "Data GitHub belum tersedia",
     "unavailableDescription": "Data akan muncul setelah pembaruan harian berikutnya.",
-    "totalLabel": "kontribusi dalam setahun terakhir"
+    "stats": {
+      "followers": "Pengikut",
+      "following": "Mengikuti",
+      "repositories": "Repositori",
+      "contributions": "Kontribusi",
+      "thisWeek": "Minggu ini",
+      "bestDay": "Hari terbaik",
+      "dailyAverage": "Rata-rata harian",
+      "perDay": "/ hari"
+    }
+  },
+  "contact": {
+    "form": {
+      "title": "Kirim pesan",
+      "description": "Ceritakan proyekmu, peluang kerja sama, atau sekadar menyapa. Biasanya saya membalas dalam beberapa hari."
+    },
+    "channels": {
+      "title": "Temukan saya",
+      "description": "Ikuti atau sapa saya di platform yang paling sering saya pakai."
+    },
+    "fields": {
+      "name": "Nama",
+      "email": "Email",
+      "message": "Pesan"
+    },
+    "placeholders": {
+      "name": "Nama kamu",
+      "email": "kamu@contoh.com",
+      "message": "Halo Doni, saya ingin membahas…"
+    },
+    "send": "Kirim pesan",
+    "sending": "Mengirim…",
+    "comingSoonNotice": "Pesanmu sudah valid! Pengiriman dari form ini akan segera diaktifkan. Sementara itu, hubungi saya lewat salah satu kanal di halaman ini.",
+    "errors": {
+      "nameTooShort": "Isi minimal 2 karakter.",
+      "nameTooLong": "Nama maksimal 80 karakter.",
+      "emailInvalid": "Masukkan alamat email yang valid.",
+      "messageTooShort": "Tulis minimal 10 karakter.",
+      "messageTooLong": "Pesan maksimal 2.000 karakter.",
+      "honeypot": "Terjadi kesalahan. Coba lagi."
+    },
+    "windowTitle": "pesan-baru.ts",
+    "windowBadge": "draf"
   }
 }
