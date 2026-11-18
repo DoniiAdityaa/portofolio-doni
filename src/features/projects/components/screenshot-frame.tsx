@@ -1,3 +1,4 @@
+import { StorageImage } from "@/components/ui/storage-image";
 import { cn } from "@/lib/utils/cn";
 
 import type { ImageOrientation } from "../types";
@@ -5,7 +6,7 @@ import type { ImageOrientation } from "../types";
 type ScreenshotFrameProps = {
   orientation: ImageOrientation;
   label: string;
-  /** Uploaded image path; images come from Supabase Storage in M5. */
+  /** Uploaded image path in the media bucket. */
   src: string | null;
   className?: string;
 };
@@ -39,8 +40,11 @@ export function ScreenshotFrame({ orientation, label, src, className }: Screensh
         )}
       >
         {src ? (
-          // eslint-disable-next-line @next/next/no-img-element -- replaced by next/image with Storage URLs in M5
-          <img src={src} alt={label} className="size-full object-cover" />
+          <StorageImage
+            path={src}
+            alt={label}
+            sizes={portrait ? "(min-width: 768px) 25vw, 60vw" : "(min-width: 768px) 60vw, 100vw"}
+          />
         ) : (
           <span className="px-3 text-center font-mono text-xs text-muted-foreground">{label}</span>
         )}

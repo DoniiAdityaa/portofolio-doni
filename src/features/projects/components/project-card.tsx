@@ -22,7 +22,7 @@ export async function ProjectCard({ project }: { project: ProjectWithRelations }
         href={`/projects/${project.slug}`}
         className="group flex h-full flex-col overflow-hidden rounded-xl border bg-card transition-colors hover:border-primary/40 focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none"
       >
-        <ProjectThumbnail title={title} />
+        <ProjectThumbnail title={title} path={project.thumbnailPath} />
         <div className="flex flex-1 flex-col gap-3 p-4">
           <div className="flex items-start justify-between gap-2">
             <h3 className="font-heading text-lg font-medium">{title}</h3>

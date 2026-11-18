@@ -23,6 +23,7 @@ export async function getSiteSettingsForAdmin(): Promise<SiteSettingsFormValues>
 
   return {
     name: data?.name ?? "",
+    photoPath: data?.photo_path ?? null,
     headline: storedText.parse(data?.headline),
     roles: storedRoles.parse(data?.roles).map((text) => ({ text })),
     shortIntro: storedText.parse(data?.short_intro),

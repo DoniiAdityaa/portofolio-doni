@@ -18,4 +18,8 @@ export type SiteSettings = {
   fullIntro: LocalizedText;
   socialLinks: SocialLink[];
   githubUsername: string | null;
+  /** Storage path of the profile photo; initials are shown while it is empty. */
+  photoPath: string | null;
+  /** Storage paths of the CV PDFs per language (documents bucket). */
+  cvPaths: { en: string | null; id: string | null };
 };

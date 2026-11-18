@@ -1,15 +1,30 @@
+import { StorageImage } from "@/components/ui/storage-image";
 import { cn } from "@/lib/utils/cn";
 
 type ProjectThumbnailProps = {
   title: string;
+  /** Uploaded thumbnail; placeholder art is shown while it is empty. */
+  path: string | null;
+  priority?: boolean;
   className?: string;
 };
 
-/**
- * Placeholder artwork used while a project has no uploaded thumbnail (dummy data, M2).
- * M5 renders the uploaded image with next/image when `thumbnailPath` is set.
- */
-export function ProjectThumbnail({ title, className }: ProjectThumbnailProps) {
+/** The project's uploaded thumbnail, or placeholder art with its first letter. */
+export function ProjectThumbnail({ title, path, priority, className }: ProjectThumbnailProps) {
+  if (path) {
+    return (
+      <div className={cn("relative aspect-video overflow-hidden bg-secondary", className)}>
+        <StorageImage
+          path={path}
+          alt=""
+          sizes="(min-width: 1024px) 40vw, (min-width: 640px) 50vw, 100vw"
+          priority={priority}
+          className="transition-transform duration-500 group-hover:scale-105"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       aria-hidden="true"

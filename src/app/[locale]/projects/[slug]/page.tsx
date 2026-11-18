@@ -178,7 +178,12 @@ async function ProjectDetail({ params }: Pick<PageProps<"/[locale]/projects/[slu
       </header>
 
       <Reveal delay={0.1}>
-        <ProjectThumbnail title={title} className="rounded-xl border" />
+        <ProjectThumbnail
+          title={title}
+          path={project.thumbnailPath}
+          priority
+          className="rounded-xl border"
+        />
       </Reveal>
 
       {sections

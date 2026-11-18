@@ -1,8 +1,11 @@
+import { cacheLife, cacheTag } from "next/cache";
+
 import { getSkillsByIds } from "@/features/skills/queries";
 import type { Skill } from "@/features/skills/types";
-import { compareByManualOrderThenDate, isPubliclyVisible } from "@/lib/content/visibility";
+import { CACHE_TAGS } from "@/lib/cache/tags";
+import { storedText } from "@/lib/content/stored";
+import { createSupabasePublicClient } from "@/lib/supabase/public";
 
-import { dummyAchievementCategories, dummyAchievements } from "./dummy";
 import type { Achievement, AchievementCategory } from "./types";
 
 export type AchievementWithRelations = Achievement & {
@@ -10,16 +13,60 @@ export type AchievementWithRelations = Achievement & {
   skills: Skill[];
 };
 
+/** Categories and published achievements in public order. Cached until edited in admin. */
+async function loadAchievements(): Promise<{
+  categories: AchievementCategory[];
+  achievements: Achievement[];
+}> {
+  "use cache";
+  cacheLife("days");
+  cacheTag(CACHE_TAGS.achievements);
+
+  const supabase = createSupabasePublicClient();
+  const [categories, achievements] = await Promise.all([
+    supabase.from("achievement_categories").select("id, name, sort_order").order("sort_order"),
+    supabase
+      .from("achievements")
+      .select("*, achievement_skills(skill_id)")
+      .order("sort_order", { nullsFirst: false })
+      .order("issued_at", { ascending: false }),
+  ]);
+  if (categories.error) throw categories.error;
+  if (achievements.error) throw achievements.error;
+
+  return {
+    categories: categories.data.map((row) => ({
+      id: row.id,
+      name: storedText(row.name),
+      sortOrder: row.sort_order,
+    })),
+    achievements: achievements.data.map((row) => ({
+      id: row.id,
+      status: row.status,
+      sortOrder: row.sort_order,
+      deletedAt: row.deleted_at,
+      title: storedText(row.title),
+      type: row.type,
+      imagePath: row.image_path,
+      issuer: row.issuer,
+      issuedAt: row.issued_at,
+      expiresAt: row.expires_at,
+      credentialUrl: row.credential_url,
+      credentialId: row.credential_id,
+      categoryId: row.category_id,
+      description: storedText(row.description),
+      skillIds: row.achievement_skills.map((link) => link.skill_id),
+    })),
+  };
+}
+
 /** Published achievements, newest first unless reordered in admin (Case 01 §5.3). */
 export async function getPublishedAchievements(): Promise<AchievementWithRelations[]> {
-  const achievements = dummyAchievements
-    .filter(isPubliclyVisible)
-    .sort(compareByManualOrderThenDate<Achievement>((item) => item.issuedAt));
-
+  const { categories, achievements } = await loadAchievements();
   return Promise.all(
     achievements.map(async (item) => ({
       ...item,
-      category: dummyAchievementCategories.find((c) => c.id === item.categoryId) ?? null,
+      category: categories.find((category) => category.id === item.categoryId) ?? null,
       skills: await getSkillsByIds(item.skillIds),
     })),
   );
@@ -27,8 +74,7 @@ export async function getPublishedAchievements(): Promise<AchievementWithRelatio
 
 /** Categories that have at least one published achievement, in manual order. */
 export async function getUsedAchievementCategories(): Promise<AchievementCategory[]> {
-  const used = new Set(dummyAchievements.filter(isPubliclyVisible).map((item) => item.categoryId));
-  return dummyAchievementCategories
-    .filter((category) => used.has(category.id))
-    .sort((a, b) => a.sortOrder - b.sortOrder);
+  const { categories, achievements } = await loadAchievements();
+  const used = new Set(achievements.map((item) => item.categoryId));
+  return categories.filter((category) => used.has(category.id));
 }

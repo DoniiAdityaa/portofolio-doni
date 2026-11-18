@@ -2,8 +2,10 @@ import type { LucideIcon } from "lucide-react";
 
 import { cn } from "@/lib/utils/cn";
 
+import { StorageImage } from "./storage-image";
+
 type OrgLogoProps = {
-  /** Uploaded logo path; images are wired to Supabase Storage in M5. */
+  /** Uploaded logo path in the media bucket. */
   src: string | null;
   name: string;
   /** Placeholder icon shown while no logo is uploaded (Case 01 §5.2). */
@@ -16,13 +18,12 @@ export function OrgLogo({ src, name, fallbackIcon: FallbackIcon, className }: Or
   return (
     <div
       className={cn(
-        "flex size-12 items-center justify-center overflow-hidden rounded-xl border bg-secondary",
+        "relative flex size-12 items-center justify-center overflow-hidden rounded-xl border bg-secondary",
         className,
       )}
     >
       {src ? (
-        // eslint-disable-next-line @next/next/no-img-element -- replaced by next/image with Storage URLs in M5
-        <img src={src} alt={name} className="size-full object-cover" />
+        <StorageImage path={src} alt={name} sizes="48px" className="object-contain p-1" />
       ) : (
         <FallbackIcon aria-hidden="true" className="size-5 text-muted-foreground" />
       )}
