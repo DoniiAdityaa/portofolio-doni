@@ -19,7 +19,9 @@
     "openMenu": "Buka menu",
     "menuTitle": "Menu",
     "skipToContent": "Langsung ke konten",
-    "socialLinks": "Tautan sosial"
+    "socialLinks": "Tautan sosial",
+    "endOfPage": "Sudah sampai akhir",
+    "backToTop": "Kembali ke atas"
   },
   "pages": {
     "comingSoonTitle": "Segera hadir",
@@ -77,7 +79,39 @@
     },
     "caseStudyComingSoon": "Studi kasus lengkap segera hadir.",
     "backToProjects": "Kembali ke proyek",
-    "techStack": "Tech stack"
+    "techStack": "Tech stack",
+    "all": "Semua",
+    "search": "Cari proyek",
+    "searchPlaceholder": "Cari nama atau deskripsi…",
+    "total": "{count} proyek",
+    "emptyTitle": "Tidak ada proyek yang cocok",
+    "emptyDescription": "Coba kata kunci atau kategori lain.",
+    "reset": "Reset",
+    "sections": {
+      "overview": "Ringkasan",
+      "problem": "Masalah",
+      "solution": "Solusi",
+      "features": "Fitur utama",
+      "challenges": "Tantangan dan pembelajaran",
+      "gallery": "Galeri",
+      "links": "Tautan"
+    },
+    "links": {
+      "repo": "Kode sumber",
+      "demo": "Demo langsung",
+      "playStore": "Google Play",
+      "appStore": "App Store"
+    },
+    "period": "Periode",
+    "category": "Kategori",
+    "statusLabel": "Status",
+    "previous": "Gambar sebelumnya",
+    "next": "Gambar berikutnya",
+    "openImage": "Buka gambar: {alt}",
+    "imageCount": "{current} dari {total}",
+    "close": "Tutup",
+    "filterType": "Tipe",
+    "filterCategory": "Kategori"
   },
   "about": {
     "intro": {

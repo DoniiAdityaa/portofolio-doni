@@ -179,8 +179,9 @@ Translatable fields use type `jsonb` holding `{ "en": ..., "id": ... }` (see §5
 | `achievement_categories` | name*, sort_order | Defaults: Mobile, Web, Backend, Cloud, Soft Skill |
 | `achievements` | title*, type (`certificate`, `award`), image_path, issuer, issued_at, expires_at, credential_url, credential_id, category_id, description*, status | |
 | `achievement_skills` | achievement_id, skill_id | Related skills |
-| `project_categories` | name*, sort_order | Defaults: Mobile, Web, Backend |
-| `projects` | slug (unique), title*, summary*, thumbnail_path, category_id, project_status (`completed`, `in_progress`, `archived`), started_at, ended_at, is_featured, repo_url, demo_url, play_store_url, app_store_url, overview*, problem*, solution*, features*, challenges*, status | Case-study sections are Markdown |
+| `project_types` | name*, sort_order | Platform (CR-06). Defaults: Web, Mobile |
+| `project_categories` | name*, sort_order | Context (CR-06). Defaults: Personal project, Internship, Freelance, Competition |
+| `projects` | slug (unique), title*, summary*, thumbnail_path, type_id, category_id, project_status (`completed`, `in_progress`, `archived`), started_at, ended_at, is_featured, repo_url, demo_url, play_store_url, app_store_url, overview*, problem*, solution*, features*, challenges*, status | Case-study sections are Markdown |
 | `project_skills` | project_id, skill_id | Tech stack |
 | `project_images` | project_id, path, alt*, orientation (`portrait`, `landscape`), sort_order | Gallery |
 | `contact_messages` | name, email, message, is_read, archived_at, created_at | Inbox |

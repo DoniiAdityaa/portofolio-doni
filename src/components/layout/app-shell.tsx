@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 import { getSiteSettings } from "@/features/settings/queries";
 
+import { EndOfPage } from "./end-of-page";
 import { MobileNav } from "./mobile-nav";
 import { SidebarContent } from "./sidebar-content";
 
@@ -40,6 +41,7 @@ export async function AppShell({ children }: { children: ReactNode }) {
           className="min-w-0 flex-1 py-8 outline-none md:py-12"
         >
           {children}
+          <EndOfPage />
         </main>
       </div>
     </>

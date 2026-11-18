@@ -19,7 +19,9 @@
     "openMenu": "Open menu",
     "menuTitle": "Menu",
     "skipToContent": "Skip to content",
-    "socialLinks": "Social links"
+    "socialLinks": "Social links",
+    "endOfPage": "You've reached the end",
+    "backToTop": "Back to top"
   },
   "pages": {
     "comingSoonTitle": "Coming soon",
@@ -77,7 +79,39 @@
     },
     "caseStudyComingSoon": "The full case study is coming soon.",
     "backToProjects": "Back to projects",
-    "techStack": "Tech stack"
+    "techStack": "Tech stack",
+    "all": "All",
+    "search": "Search projects",
+    "searchPlaceholder": "Search by name or description…",
+    "total": "{count, plural, one {# project} other {# projects}}",
+    "emptyTitle": "No projects match your search",
+    "emptyDescription": "Try another keyword or category.",
+    "reset": "Reset",
+    "sections": {
+      "overview": "Overview",
+      "problem": "Problem",
+      "solution": "Solution",
+      "features": "Key features",
+      "challenges": "Challenges and learnings",
+      "gallery": "Gallery",
+      "links": "Links"
+    },
+    "links": {
+      "repo": "Source code",
+      "demo": "Live demo",
+      "playStore": "Google Play",
+      "appStore": "App Store"
+    },
+    "period": "Period",
+    "category": "Category",
+    "statusLabel": "Status",
+    "previous": "Previous image",
+    "next": "Next image",
+    "openImage": "Open image: {alt}",
+    "imageCount": "{current} of {total}",
+    "close": "Close",
+    "filterType": "Type",
+    "filterCategory": "Category"
   },
   "about": {
     "intro": {

@@ -303,6 +303,7 @@ No open product decisions remain.
 | CR-02 | 2026-11-18 | Background is one solid color (no gradient glow). Hero typing effect loops. No emoji in the greeting. | Owner, in chat |
 | CR-04 | 2026-11-18 | Career entries split their description into Responsibilities, What I learned, and Impact, each with an icon; career cards get creative hover animations. | Owner, in chat |
 | CR-05 | 2026-11-18 | Achievement gets a search box (title and issuer). The certificate viewer becomes a wide split view: large image left, details panel right (stacked on phones), with entry animations. | Owner, in chat |
+| CR-06 | 2026-11-18 | Projects have a **type** (platform: Web, Mobile) and a separate **category** (context: Personal project, Internship, Freelance, Competition), both managed in admin; the list filters by both in two labeled pill rows plus search. Every page ends with a "You've reached the end" marker and a back-to-top button. | Owner, in chat |
 | CR-03 | 2026-11-18 | About signature uses the handwritten font Dancing Script in Sky, with a write-on animation and a pen-stroke underline. | Owner, in chat |
 
 ## 11. Out of scope

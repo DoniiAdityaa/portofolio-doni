@@ -47,8 +47,8 @@ export async function ProjectCard({ project }: { project: ProjectWithRelations }
               })}
             </ul>
             <div className="flex gap-1.5">
-              {project.category ? (
-                <Badge variant="outline">{localize(project.category.name, locale)}</Badge>
+              {project.type ? (
+                <Badge variant="outline">{localize(project.type.name, locale)}</Badge>
               ) : null}
               <Badge variant="secondary">{t(`status.${project.projectStatus}`)}</Badge>
             </div>
