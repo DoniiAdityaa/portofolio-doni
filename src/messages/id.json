@@ -55,7 +55,7 @@
     "present": "Sekarang"
   },
   "home": {
-    "greeting": "Halo, saya {name} 👋",
+    "greeting": "Halo, saya {name}",
     "viewProjects": "Lihat proyek",
     "skills": {
       "title": "Skill",

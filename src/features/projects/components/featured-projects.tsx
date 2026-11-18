@@ -1,4 +1,4 @@
-import { ArrowRightIcon, SparklesIcon } from "lucide-react";
+import { ArrowRightIcon, FolderGit2Icon } from "lucide-react";
 import { getTranslations } from "next-intl/server";
 
 import { SectionHeader } from "@/components/layout/section-header";
@@ -22,7 +22,7 @@ export async function FeaturedProjects() {
       <Reveal>
         <SectionHeader
           id="featured-title"
-          icon={SparklesIcon}
+          icon={FolderGit2Icon}
           title={t("title")}
           description={t("description")}
           action={

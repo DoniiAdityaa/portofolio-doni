@@ -76,7 +76,7 @@ Accents are used selectively; the interface stays mostly neutral and dark.
 
 ### 3.5 Playful details (Confirmed; animation scope widened by CR-01)
 - Tech tags styled like code, e.g. `<flutter />`.
-- **Rich animation (CR-01):** content fades/slides in on page load and on scroll, page transitions, a sliding active-menu indicator, hover lift on cards and skill chips, tilt on cards, a typing effect in the Home hero, and a soft animated glow in the background.
+- **Rich animation (CR-01):** content fades/slides in on page load and on scroll, page transitions, a sliding active-menu indicator, hover lift on cards and skill chips, tilt on cards, and a looping typing effect in the Home hero. The page background stays one solid color (CR-02).
 - Skill chips use a light tint of each brand's color (e.g. Flutter blue, Laravel red).
 - Contribution graph colored with the Teal/Sky palette instead of GitHub green.
 - All motion respects the visitor's "reduce motion" setting.
@@ -299,6 +299,7 @@ No open product decisions remain.
 | ID | Date | Change | Approved |
 |---|---|---|---|
 | CR-01 | 2026-11-18 | Desktop layout becomes a centered container with a sticky sidebar (UI/UX reference style). Animation scope widened from "subtle" to rich animation (§3.5). Skill chips tinted with brand colors. Palette unchanged. | Owner, in chat |
+| CR-02 | 2026-11-18 | Background is one solid color (no gradient glow). Hero typing effect loops. No emoji in the greeting. | Owner, in chat |
 
 ## 11. Out of scope
 

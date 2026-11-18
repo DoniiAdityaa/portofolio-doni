@@ -55,7 +55,7 @@
     "present": "Present"
   },
   "home": {
-    "greeting": "Hi, I'm {name} 👋",
+    "greeting": "Hi, I'm {name}",
     "viewProjects": "View projects",
     "skills": {
       "title": "Skills",

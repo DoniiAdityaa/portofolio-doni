@@ -1,6 +1,6 @@
 "use client";
 
-import { AnimatePresence, motion } from "motion/react";
+import { motion } from "motion/react";
 import type { ReactNode } from "react";
 import { useState } from "react";
 
@@ -24,6 +24,16 @@ type SkillFilterProps = {
 
 const ALL = "all";
 
+const listVariants = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.025 } },
+};
+
+const chipVariants = {
+  hidden: { opacity: 0, y: 6 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.25, ease: "easeOut" as const } },
+};
+
 /** Category pills with counts (UI/UX reference) and an animated, filtered chip list. */
 export function SkillFilter({ allLabel, filterLabel, tabs, chips }: SkillFilterProps) {
   const [active, setActive] = useState(ALL);
@@ -45,20 +55,15 @@ export function SkillFilter({ allLabel, filterLabel, tabs, chips }: SkillFilterP
               aria-pressed={selected}
               onClick={() => setActive(tab.id)}
               className={cn(
-                "relative inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-colors",
+                "inline-flex items-center gap-2 rounded-full border px-3.5 py-1.5 text-sm transition-all duration-200 active:scale-95",
                 "focus-visible:ring-2 focus-visible:ring-ring focus-visible:outline-none",
+                // A sliding highlight (layout animation) misplaced itself while the chip list
+                // below changed height, so the selected pill simply transitions its colors.
                 selected
-                  ? "border-transparent text-primary-foreground"
+                  ? "border-transparent bg-primary text-primary-foreground shadow-md shadow-primary/20"
                   : "text-muted-foreground hover:border-primary/40 hover:text-foreground",
               )}
             >
-              {selected ? (
-                <motion.span
-                  layoutId="skill-filter-pill"
-                  className="absolute inset-0 rounded-full bg-primary"
-                  transition={{ type: "spring", stiffness: 400, damping: 32 }}
-                />
-              ) : null}
               <span className="relative">{tab.label}</span>
               <span
                 className={cn(
@@ -73,21 +78,23 @@ export function SkillFilter({ allLabel, filterLabel, tabs, chips }: SkillFilterP
         })}
       </div>
 
-      <motion.ul layout className="flex flex-wrap gap-2.5">
-        <AnimatePresence mode="popLayout" initial={false}>
-          {visible.map((chip, index) => (
-            <motion.li
-              key={chip.id}
-              layout
-              initial={{ opacity: 0, scale: 0.8, y: 8 }}
-              animate={{ opacity: 1, scale: 1, y: 0 }}
-              exit={{ opacity: 0, scale: 0.8 }}
-              transition={{ duration: 0.25, delay: Math.min(index * 0.015, 0.3) }}
-            >
-              {chip.node}
-            </motion.li>
-          ))}
-        </AnimatePresence>
+      {/*
+        Re-keyed per tab: the old list is swapped out at once and the new chips fade in
+        one after another. Moving chips between positions (layout animation) caused
+        overlapping jumps when switching tabs, so it is intentionally not used here.
+      */}
+      <motion.ul
+        key={active}
+        className="flex flex-wrap gap-2.5"
+        initial="hidden"
+        animate="visible"
+        variants={listVariants}
+      >
+        {visible.map((chip) => (
+          <motion.li key={chip.id} variants={chipVariants}>
+            {chip.node}
+          </motion.li>
+        ))}
       </motion.ul>
     </div>
   );
