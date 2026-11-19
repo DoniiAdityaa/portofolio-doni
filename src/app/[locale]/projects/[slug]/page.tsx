@@ -31,9 +31,16 @@ import { formatPeriod } from "@/lib/i18n/dates";
 import { localize } from "@/lib/i18n/localize";
 import { Link } from "@/lib/i18n/navigation";
 
+/**
+ * With Cache Components this must return at least one slug, or the build fails. Before any
+ * project is published (e.g. a fresh production database) a placeholder is returned: it has
+ * no project, so it renders the 404 page. Real slugs added later are still served on request.
+ */
+const NO_PROJECTS_PLACEHOLDER_SLUG = "no-projects-yet";
+
 export async function generateStaticParams() {
   const slugs = await getPublishedProjectSlugs();
-  return slugs.map((slug) => ({ slug }));
+  return (slugs.length > 0 ? slugs : [NO_PROJECTS_PLACEHOLDER_SLUG]).map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
