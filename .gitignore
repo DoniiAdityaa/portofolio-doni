@@ -49,3 +49,6 @@ next-env.d.ts
 /blob-report/
 /playwright/.cache/
 /e2e/.auth/
+
+# graphify knowledge graph (local, regenerate with /graphify)
+/graphify-out/
