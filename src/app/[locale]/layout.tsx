@@ -5,11 +5,12 @@ import { hasLocale, NextIntlClientProvider } from "next-intl";
 import { getTranslations } from "next-intl/server";
 
 import { AppShell } from "@/components/layout/app-shell";
+import { ThemeScript } from "@/components/layout/theme-script";
 import { MotionProvider } from "@/components/motion/motion-provider";
 import { clientEnv } from "@/lib/config/client";
 import { fontVariables } from "@/lib/fonts";
 import { routing } from "@/lib/i18n/routing";
-import { DEFAULT_THEME, themeInitScript } from "@/lib/theme/theme";
+import { DEFAULT_THEME } from "@/lib/theme/theme";
 
 import "../globals.css";
 
@@ -43,11 +44,8 @@ export default async function LocaleLayout({ children }: LayoutProps<"/[locale]"
       // The theme script may switch data-theme before React hydrates.
       suppressHydrationWarning
     >
-      <head>
-        {/* Static, trusted script that applies the saved theme before paint (no flash). */}
-        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
-      </head>
       <body className="flex min-h-full flex-col">
+        <ThemeScript />
         <NextIntlClientProvider>
           <MotionProvider>
             <AppShell>{children}</AppShell>
